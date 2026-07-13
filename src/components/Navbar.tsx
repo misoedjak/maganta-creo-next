@@ -30,6 +30,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
+      suppressHydrationWarning
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}
@@ -59,10 +60,10 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href={`${pathname}?quote=open`}
             className="px-6 py-2.5 rounded-full bg-[#FFD400] text-black font-semibold hover:bg-white transition-colors"
           >
-            Get a Quote
+            Pesan disini
           </Link>
         </div>
 
@@ -93,11 +94,11 @@ export default function Navbar() {
             </Link>
           ))}
           <Link
-            href="/#contact"
+            href={`${pathname}?quote=open`}
             onClick={() => setMobileMenuOpen(false)}
             className="px-6 py-3 text-center rounded-full bg-[#FFD400] text-black font-semibold block"
           >
-            Get a Quote
+            Pesan disini
           </Link>
         </motion.div>
       )}

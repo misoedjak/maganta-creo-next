@@ -25,6 +25,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { submitQuoteRequest } from "@/app/actions/public";
+import { useSearchParams } from "next/navigation";
 
 interface ContactProps {
   profile?: {
@@ -51,6 +52,9 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
   const [mapKey, setMapKey] = useState(0);
+  
+  const searchParams = useSearchParams();
+  const quoteParam = searchParams.get("quote");
 
   // Form states
   const [contact, setContact] = useState("");
@@ -77,6 +81,18 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
       }
     }
   }, [selectedEventId, categories]);
+
+  // Handle ?quote=open query parameter
+  useEffect(() => {
+    if (quoteParam === "open") {
+      setIsOpen(true);
+      // Clean up URL so refreshing doesn't keep it open
+      if (typeof window !== "undefined") {
+        const newUrl = window.location.pathname + window.location.hash;
+        window.history.replaceState(null, "", newUrl);
+      }
+    }
+  }, [quoteParam]);
 
   const handleSelectChange = (val: string) => {
     if (val === "CUSTOM") {
@@ -146,8 +162,8 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
     : "https://wa.me/6281234567890";
 
   return (
-    <section id="contact" className="py-24 bg-brand-magenta text-white relative">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="contact" className="py-24 bg-brand-magenta text-white relative" suppressHydrationWarning>
+      <div className="container mx-auto px-6 md:px-12" suppressHydrationWarning>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* CTA Text */}
@@ -163,7 +179,7 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
               Get in touch with our team today to discuss your event fabrication needs, budget scope, and request a detailed quotation.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center" suppressHydrationWarning>
               <a
                 href={formattedWhatsapp}
                 target="_blank"

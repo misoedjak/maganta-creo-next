@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { MessageSquare, Search, Tag, Info } from "lucide-react";
 
@@ -40,6 +40,12 @@ interface ProductsListProps {
 export default function ProductsList({ products, categories, whatsappNumber }: ProductsListProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [visibleCount, setVisibleCount] = useState(12);
+
+  // Reset page count when filters change
+  useEffect(() => {
+    setVisibleCount(12);
+  }, [selectedCategory, searchQuery]);
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory = selectedCategory === "all" || product.categoryId === selectedCategory;
@@ -47,6 +53,8 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
       (product.description && product.description.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch && product.status === "active";
   });
+
+  const displayedProducts = filteredProducts.slice(0, visibleCount);
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("id-ID", {
@@ -114,6 +122,14 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
         </div>
       </div>
 
+      {/* Results Count Feedback */}
+      <div className="mb-6 flex justify-between items-center text-xs text-gray-500">
+        <span>Showing {Math.min(visibleCount, filteredProducts.length)} of {filteredProducts.length} products</span>
+        {filteredProducts.length > 0 && (
+          <span>Page 1 of {Math.ceil(filteredProducts.length / 12)}</span>
+        )}
+      </div>
+
       {/* Products Grid */}
       {filteredProducts.length === 0 ? (
         <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
@@ -121,13 +137,14 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
           <p className="text-gray-500 font-medium">No products found matching your criteria.</p>
         </div>
       ) : (
-        <motion.div 
-          layout
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          <AnimatePresence mode="popLayout">
-            {filteredProducts.map((product) => {
-              const formattedPrice = `${formatPrice(product.price)} / ${product.priceUnit}`;
+        <div className="space-y-12">
+          <motion.div 
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8"
+          >
+            <AnimatePresence mode="popLayout">
+              {displayedProducts.map((product) => {
+                const formattedPrice = `${formatPrice(product.price)} / ${product.priceUnit}`;
               return (
                 <motion.div
                   layout
@@ -196,6 +213,18 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
             })}
           </AnimatePresence>
         </motion.div>
+
+        {filteredProducts.length > visibleCount && (
+          <div className="flex justify-center pt-8">
+            <button
+              onClick={() => setVisibleCount(prev => prev + 12)}
+              className="px-8 py-3.5 rounded-full bg-white text-gray-700 border border-gray-200 hover:border-brand-magenta hover:text-brand-magenta hover:scale-105 active:scale-95 transition-all duration-300 font-semibold text-sm shadow-sm"
+            >
+              Load More Products ({filteredProducts.length - visibleCount} remaining)
+            </button>
+          </div>
+        )}
+        </div>
       )}
     </div>
   );

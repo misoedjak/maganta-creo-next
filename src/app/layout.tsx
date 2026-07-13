@@ -22,17 +22,28 @@ export const metadata: Metadata = {
 
 import { Providers } from "@/components/Providers";
 import { Toaster } from "@/components/ui/sonner";
+import { prisma } from "@/lib/db";
+import { Suspense } from "react";
+import GlobalQuoteDialog from "@/components/GlobalQuoteDialog";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const categories = await prisma.category.findMany({
+    select: { id: true, name: true },
+    orderBy: { name: "asc" }
+  });
+
   return (
-    <html lang="en" className={cn("scroll-smooth", "font-sans", geist.variable)} suppressHydrationWarning>
+    <html lang="en" className={cn("scroll-smooth", "font-sans", geist.variable)} data-scroll-behavior="smooth" suppressHydrationWarning>
       <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased bg-brand-light text-brand-dark`} suppressHydrationWarning>
         <Providers>
           {children}
+          <Suspense fallback={null}>
+            <GlobalQuoteDialog categories={categories} />
+          </Suspense>
         </Providers>
         <Toaster position="top-right" richColors />
       {/* impeccable-live-start */}

@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/db";
 import { Metadata } from "next";
+import { Suspense } from "react";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -79,9 +80,22 @@ export default async function Home({ searchParams }: HomeProps) {
     orderBy: { order: "asc" },
   });
 
-  // Query clients
-  const clients = await prisma.client.findMany({
+  // Query clients and their matching portfolio slugs
+  const dbClients = await prisma.client.findMany({
     orderBy: { order: "asc" },
+  });
+  const clientPortfolios = await prisma.portfolio.findMany({
+    where: { status: "published" },
+    select: { client: true, slug: true },
+  });
+  const clients = dbClients.map(c => {
+    const match = clientPortfolios.find(p => p.client?.toLowerCase() === c.name.toLowerCase());
+    return {
+      id: c.id,
+      name: c.name,
+      logoUrl: c.logoUrl,
+      portfolioSlug: match ? match.slug : null
+    };
   });
 
   // Query Hero Settings
@@ -124,7 +138,9 @@ export default async function Home({ searchParams }: HomeProps) {
       <Portfolio initialPortfolios={portfolios} categories={categories} />
       <WhyChooseUs advantages={advantages} />
       <Process steps={pipelineSteps} />
-      <Contact profile={profile} categories={categories} selectedEventId={selectedEventId} />
+      <Suspense fallback={null}>
+        <Contact profile={profile} categories={categories} selectedEventId={selectedEventId} />
+      </Suspense>
       <Footer profile={profile} />
     </main>
   );

@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Handshake, Award, Quote, CheckCircle } from "lucide-react";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const revalidate = 0;
 
@@ -17,6 +18,10 @@ export default async function ClientsPage() {
   const profile = await prisma.companyProfile.findFirst();
   const dbClients = await prisma.client.findMany({
     orderBy: { order: "asc" },
+  });
+  const clientPortfolios = await prisma.portfolio.findMany({
+    where: { status: "published" },
+    select: { client: true, slug: true },
   });
 
   const fallbackLogos = [
@@ -35,8 +40,15 @@ export default async function ClientsPage() {
   ];
 
   const logosToRender = dbClients.length > 0
-    ? dbClients.map(c => ({ name: c.name, logoUrl: c.logoUrl }))
-    : fallbackLogos;
+    ? dbClients.map(c => {
+        const match = clientPortfolios.find(p => p.client?.toLowerCase() === c.name.toLowerCase());
+        return {
+          name: c.name,
+          logoUrl: c.logoUrl,
+          portfolioSlug: match ? match.slug : null
+        };
+      })
+    : fallbackLogos.map(l => ({ ...l, portfolioSlug: null }));
 
   const fallbackCaseStudies = [
     {
@@ -98,18 +110,29 @@ export default async function ClientsPage() {
           </div>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-6">
-            {logosToRender.map((client, i) => (
-              <div 
-                key={i} 
-                className="glass-card py-6 px-4 flex items-center justify-center border border-brand-magenta/5 rounded-2xl hover:border-brand-magenta/30 hover:bg-brand-magenta/5 transition-all text-center h-20"
-              >
-                <img 
-                  src={client.logoUrl} 
-                  alt={client.name} 
-                  className="max-h-full max-w-full object-contain opacity-95 hover:opacity-100 transition-all"
-                />
-              </div>
-            ))}
+            {logosToRender.map((client, i) => {
+              const cardContent = (
+                <div 
+                  className="flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 cursor-pointer h-24"
+                >
+                  <img 
+                    src={`${client.logoUrl}?v=2`} 
+                    alt={client.name} 
+                    className="max-h-16 md:max-h-20 max-w-[180px] md:max-w-[220px] object-contain opacity-95 hover:opacity-100 transition-opacity"
+                  />
+                </div>
+              );
+
+              if (client.portfolioSlug) {
+                return (
+                  <Link key={i} href={`/portfolio/${client.portfolioSlug}`}>
+                    {cardContent}
+                  </Link>
+                );
+              }
+
+              return <div key={i}>{cardContent}</div>;
+            })}
           </div>
         </div>
       </section>

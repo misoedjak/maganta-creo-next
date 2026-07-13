@@ -19,13 +19,13 @@ export default function Hero({ settings }: HeroProps) {
   const heading = settings?.heading || "Premium Event <br class=\"hidden md:block\" /> <span class=\"text-brand-yellow\">Fabrication</span> & Design.";
   const subheading = settings?.subheading || "Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.";
   const bgImageUrl = settings?.bgImageUrl || "/uploads/backgrounds/hero-flame-fest.jpg";
-  const ctaText = settings?.ctaText || "Get a Quote";
+  const ctaText = settings?.ctaText || "Pesan disini";
   const ctaLink = settings?.ctaLink || "#contact";
   const portfolioText = settings?.portfolioText || "View Portfolio";
   const portfolioLink = settings?.portfolioLink || "#portfolio";
 
   return (
-    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-32 bg-white">
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden py-32 bg-white" suppressHydrationWarning>
       {/* Background Image / Video Placeholder */}
       <div 
         className="absolute inset-0 z-0"

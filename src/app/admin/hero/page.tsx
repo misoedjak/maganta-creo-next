@@ -11,7 +11,7 @@ export default async function HeroSettingsPage() {
     heading: "Premium Event Fabrication & Design.",
     subheading: "Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.",
     bgImageUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2574&auto=format&fit=crop",
-    ctaText: "Get a Quote",
+    ctaText: "Pesan disini",
     ctaLink: "#contact",
     portfolioText: "View Portfolio",
     portfolioLink: "#portfolio",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, FolderOpen } from "lucide-react";
 import Link from "next/link";
@@ -25,18 +25,39 @@ interface PortfolioItem {
 
 interface PortfolioProps {
   initialPortfolios: PortfolioItem[];
-  categories: { id: string; name: string }[];
+  categories: { id: string; name: string; slug: string }[];
 }
 
 export default function Portfolio({ initialPortfolios, categories }: PortfolioProps) {
   const [activeFilter, setActiveFilter] = useState("All");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const categoryParam = params.get("category");
+      if (categoryParam) {
+        const match = categories.find(
+          c => c.slug.toLowerCase() === categoryParam.toLowerCase() || 
+               c.id === categoryParam
+        );
+        if (match) {
+          setActiveFilter(match.id);
+          // If on portfolio page, scroll to portfolio container nicely
+          const el = document.getElementById("portfolio");
+          if (el) {
+            el.scrollIntoView({ behavior: "smooth" });
+          }
+        }
+      }
+    }
+  }, [categories]);
 
   const filteredProjects = activeFilter === "All" 
     ? initialPortfolios 
     : initialPortfolios.filter(p => p.categoryId === activeFilter);
 
   return (
-    <section id="portfolio" className="py-24 bg-brand-light border-t border-brand-magenta/5">
+    <section id="portfolio" className="py-24 bg-brand-light border-t border-brand-magenta/5" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <motion.div
