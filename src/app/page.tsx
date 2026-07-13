@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import Clients from "@/components/Clients";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
@@ -94,11 +95,30 @@ export default async function Home({ searchParams }: HomeProps) {
     orderBy: { order: "asc" },
   });
 
+  // Query featured products for the homepage (or first 4 active as fallback)
+  const dbFeaturedProducts = await prisma.product.findMany({
+    where: { featured: true, status: "active" },
+    take: 4,
+    include: { category: true }
+  });
+
+  const homepageProducts = dbFeaturedProducts.length > 0
+    ? dbFeaturedProducts
+    : await prisma.product.findMany({
+        where: { status: "active" },
+        take: 4,
+        include: { category: true }
+      });
+
   return (
     <main className="min-h-screen bg-brand-light text-brand-dark font-sans selection:bg-[#FFD400] selection:text-black">
       <Navbar />
       <Hero settings={heroSettings} />
       <About settings={aboutSettings} stats={statCards} />
+      <FeaturedProducts 
+        products={homepageProducts} 
+        whatsappNumber={profile?.whatsapp || profile?.phone || "6282115151515"} 
+      />
       <Clients clients={clients} />
       <Services categories={categories} />
       <Portfolio initialPortfolios={portfolios} categories={categories} />
