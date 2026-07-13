@@ -106,7 +106,7 @@ export default async function ClientsPage() {
                 <img 
                   src={client.logoUrl} 
                   alt={client.name} 
-                  className="max-h-full max-w-full object-contain filter grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all"
+                  className="max-h-full max-w-full object-contain opacity-95 hover:opacity-100 transition-all"
                 />
               </div>
             ))}
