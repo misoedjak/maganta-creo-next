@@ -34,7 +34,7 @@ export default function About({ settings, stats }: AboutProps) {
   ];
 
   return (
-    <section id="about" className="pt-24 pb-8 bg-brand-light relative z-10">
+    <section id="about" className="pt-24 pb-16 bg-brand-light relative z-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           

@@ -44,7 +44,7 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
   };
 
   return (
-    <section className="pt-10 pb-24 bg-white relative overflow-hidden border-t border-brand-magenta/5">
+    <section className="pt-16 pb-24 bg-white relative overflow-hidden border-t border-brand-magenta/5">
       {/* Background accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-magenta/5 rounded-full filter blur-3xl opacity-40 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#FFD400]/5 rounded-full filter blur-3xl opacity-30 pointer-events-none" />
