@@ -40,7 +40,7 @@ export default function Process({ steps = [] }: ProcessProps) {
       }));
 
   return (
-    <section id="process" className="py-24 bg-brand-light relative overflow-hidden border-t border-brand-magenta/5">
+    <section id="process" className="py-16 md:py-24 bg-brand-light relative overflow-hidden border-t border-brand-magenta/5" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

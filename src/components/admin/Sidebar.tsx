@@ -72,9 +72,21 @@ const menuGroups: Record<string, MenuGroup> = {
   }
 };
 
-export function Sidebar() {
+interface SidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
+
+  // Auto-close sidebar on mobile navigation
+  useEffect(() => {
+    if (onClose) {
+      onClose();
+    }
+  }, [pathname, onClose]);
 
   // Auto-expand group if a child link inside it is currently active
   useEffect(() => {
@@ -102,7 +114,19 @@ export function Sidebar() {
   };
 
   return (
-    <div className="w-64 bg-[#be3168] text-white flex flex-col min-h-screen border-r border-white/10">
+    <>
+      {/* Mobile Backdrop Overlay */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 z-40 bg-black/50 lg:hidden"
+          onClick={onClose}
+        />
+      )}
+
+      <div className={cn(
+        "fixed inset-y-0 left-0 z-50 w-64 bg-[#be3168] text-white flex flex-col border-r border-white/10 transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:h-screen lg:z-auto shrink-0",
+        isOpen ? "translate-x-0" : "-translate-x-full"
+      )}>
       {/* Brand Header */}
       <div className="p-6 border-b border-white/10 shrink-0">
         <Link href="/admin" className="text-xl font-bold tracking-wider text-white">
@@ -190,5 +214,6 @@ export function Sidebar() {
         </button>
       </div>
     </div>
+    </>
   );
 }

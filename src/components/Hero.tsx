@@ -45,7 +45,7 @@ export default function Hero({ settings }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-heading text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
+            className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
             dangerouslySetInnerHTML={{ __html: heading }}
           />
 

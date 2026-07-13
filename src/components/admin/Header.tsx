@@ -2,10 +2,14 @@
 
 import { useSession } from "next-auth/react";
 import { usePathname } from "next/navigation";
-import { User, Bell, ChevronRight, ExternalLink } from "lucide-react";
+import { User, Bell, ChevronRight, ExternalLink, Menu } from "lucide-react";
 import Link from "next/link";
 
-export function Header() {
+interface HeaderProps {
+  onToggleSidebar?: () => void;
+}
+
+export function Header({ onToggleSidebar }: HeaderProps) {
   const { data: session } = useSession();
   const pathname = usePathname();
 
@@ -13,12 +17,22 @@ export function Header() {
   const paths = pathname.split("/").filter(Boolean);
   
   return (
-    <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-8 text-gray-800 shadow-sm shrink-0">
-      {/* Breadcrumbs */}
-      <div className="flex items-center gap-2 text-sm text-gray-500 font-medium">
-        <Link href="/admin" className="hover:text-gray-900 transition-colors">
-          Admin
-        </Link>
+    <header className="h-16 border-b border-gray-200 bg-white flex items-center justify-between px-4 md:px-8 text-gray-800 shadow-sm shrink-0">
+      <div className="flex items-center gap-4">
+        {/* Mobile Sidebar Toggle */}
+        <button
+          onClick={onToggleSidebar}
+          className="p-2 -ml-2 text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-100 lg:hidden"
+          aria-label="Toggle Sidebar"
+        >
+          <Menu className="h-5 w-5" />
+        </button>
+
+        {/* Breadcrumbs */}
+        <div className="hidden sm:flex items-center gap-2 text-sm text-gray-500 font-medium">
+          <Link href="/admin" className="hover:text-gray-900 transition-colors">
+            Admin
+          </Link>
         {paths.slice(1).map((path, idx) => {
           const href = `/admin/${paths.slice(1, idx + 2).join("/")}`;
           const isLast = idx === paths.length - 2;
@@ -36,6 +50,7 @@ export function Header() {
             </div>
           );
         })}
+        </div>
       </div>
 
       {/* User Actions */}

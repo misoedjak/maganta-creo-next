@@ -28,7 +28,7 @@ function getCategoryIcon(slug: string) {
 
 export default function Services({ categories = [] }: ServicesProps) {
   return (
-    <section id="services" className="py-24 bg-brand-light relative border-t border-brand-magenta/5" suppressHydrationWarning>
+    <section id="services" className="py-16 md:py-24 bg-brand-light relative border-t border-brand-magenta/5" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
