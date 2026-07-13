@@ -81,12 +81,7 @@ export function Sidebar({ isOpen = false, onClose }: SidebarProps) {
   const pathname = usePathname();
   const [expandedGroups, setExpandedGroups] = useState<Record<string, boolean>>({});
 
-  // Auto-close sidebar on mobile navigation
-  useEffect(() => {
-    if (onClose) {
-      onClose();
-    }
-  }, [pathname, onClose]);
+
 
   // Auto-expand group if a child link inside it is currently active
   useEffect(() => {
