@@ -1,0 +1,175 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  role      String   @default("ADMIN")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id          String      @id @default(uuid())
+  name        String      @unique
+  slug        String      @unique
+  createdAt   DateTime    @default(now())
+  description String?
+  features    String?
+  bgImageUrl  String?
+  portfolios  Portfolio[]
+}
+
+model Portfolio {
+  id          String           @id @default(uuid())
+  title       String
+  slug        String           @unique
+  client      String?
+  categoryId  String
+  projectDate DateTime?
+  location    String?
+  description String
+  thumbnail   String
+  featured    Boolean          @default(false)
+  status      String           @default("draft")
+  seoTitle    String?
+  seoDesc     String?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  category    Category         @relation(fields: [categoryId], references: [id])
+  images      PortfolioImage[]
+}
+
+model PortfolioImage {
+  id          String    @id @default(uuid())
+  portfolioId String
+  url         String
+  order       Int       @default(0)
+  portfolio   Portfolio @relation(fields: [portfolioId], references: [id], onDelete: Cascade)
+}
+
+model QuoteRequest {
+  id          String    @id @default(uuid())
+  company     String?
+  contact     String
+  phone       String
+  email       String
+  eventType   String?
+  location    String?
+  eventDate   DateTime?
+  budget      String?
+  description String
+  status      String    @default("NEW")
+  createdAt   DateTime  @default(now())
+}
+
+model CompanyProfile {
+  id            String   @id @default(uuid())
+  name          String   @default("Maganta Kreasi")
+  description   String?
+  vision        String?
+  mission       String?
+  address       String?
+  phone         String?
+  phoneName     String?
+  phone2        String?
+  phone2Name    String?
+  email         String?
+  mapUrl        String?
+  instagram     String?
+  facebook      String?
+  linkedin      String?
+  whatsapp      String?
+  whatsappName  String?
+  whatsapp2     String?
+  whatsapp2Name String?
+  updatedAt     DateTime @updatedAt
+}
+
+model Gallery {
+  id        String   @id @default(uuid())
+  url       String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Settings {
+  id         String   @id @default(uuid())
+  logoUrl    String?
+  faviconUrl String?
+  siteName   String   @default("Maganta Kreasi")
+  seoTitle   String?
+  seoDesc    String?
+  gaId       String?
+  updatedAt  DateTime @updatedAt
+}
+
+model Advantage {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  icon        String   @default("Hammer")
+  bgImageUrl  String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model PipelineStep {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  bgImageUrl  String?
+  order       Int      @default(0)
+  createdAt   DateTime @default(now())
+}
+
+model Client {
+  id          String   @id @default(uuid())
+  name        String
+  logoUrl     String
+  order       Int      @default(0)
+  
+  // Testimonial & Case Study (Optional)
+  event       String?
+  type        String?
+  feedback    String?
+  stat        String?
+
+  createdAt   DateTime @default(now())
+}
+
+model HeroSettings {
+  id            String   @id @default(uuid())
+  heading       String   @default("Premium Event Fabrication & Design.")
+  subheading    String   @default("Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.")
+  bgImageUrl    String   @default("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2574&auto=format&fit=crop")
+  ctaText       String   @default("Get a Quote")
+  ctaLink       String   @default("#contact")
+  portfolioText String   @default("View Portfolio")
+  portfolioLink String   @default("#portfolio")
+  updatedAt     DateTime @updatedAt
+}
+
+model AboutSettings {
+  id          String   @id @default(uuid())
+  heading     String   @default("Precision Engineering, Exceptional Craftsmanship.")
+  paragraph1  String   @default("Maganta Kreasi is Indonesia's premier event fabrication and decoration specialist. We bring visionary event designs to life with unparalleled structural integrity and aesthetic perfection.")
+  paragraph2  String   @default("Operating from our massive in-house workshop, our team of structural engineers, carpenters, and visual artists craft bespoke exhibition booths, monumental festival stages, and immersive corporate event environments.")
+  features    String   @default("In-house Fabrication Workshop, Premium Structural Materials, Dedicated Project Managers")
+  updatedAt   DateTime @updatedAt
+}
+
+model StatCard {
+  id        String   @id @default(uuid())
+  number    String
+  label     String
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
