@@ -20,6 +20,7 @@ interface CategoryItem {
   slug: string;
   description: string | null;
   features: string | null;
+  bgImageUrl: string | null;
 }
 
 interface ServicesListProps {
@@ -66,6 +67,18 @@ export default function ServicesList({ categories }: ServicesListProps) {
                 className="glass-card p-8 border border-brand-magenta/5 hover:border-brand-magenta/40 transition-all rounded-3xl flex flex-col justify-between"
               >
                 <div className="space-y-6">
+                  {/* Card Header Image */}
+                  {category.bgImageUrl && (
+                    <div className="relative aspect-[16/7] w-full rounded-2xl overflow-hidden border border-zinc-100/80 shadow-sm shrink-0">
+                      <img 
+                        src={category.bgImageUrl} 
+                        alt={category.name} 
+                        className="object-cover w-full h-full hover:scale-102 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    </div>
+                  )}
+
                   {/* Icon & Name */}
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-xl bg-brand-magenta/10 flex items-center justify-center text-brand-magenta shrink-0">
