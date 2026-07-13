@@ -1,4 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <rect width="100%" height="100%" fill="none" />
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#00509d">BCA</text>
+  <!-- BCA blue shield/circle -->
+  <circle cx="30" cy="30" r="18" fill="#003399"/>
+  <text x="30" y="36" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="14" fill="#ffffff" letter-spacing="1">BCA</text>
+  <!-- Full name -->
+  <text x="56" y="26" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="20" fill="#003399" letter-spacing="0.5">BCA</text>
+  <text x="56" y="42" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="8" fill="#666666" letter-spacing="1.5">BANK CENTRAL ASIA</text>
 </svg>

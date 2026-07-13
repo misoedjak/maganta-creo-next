@@ -1,4 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <rect width="100%" height="100%" fill="none" />
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#e63946">Coca-Cola</text>
+  <!-- Coca-Cola ribbon/wave -->
+  <defs>
+    <linearGradient id="cokeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#E61226"/>
+      <stop offset="100%" stop-color="#CC0E1F"/>
+    </linearGradient>
+  </defs>
+  <!-- Coca-Cola Spencerian script style -->
+  <text x="100" y="38" text-anchor="middle" font-family="'Georgia', 'Times New Roman', serif" font-weight="700" font-style="italic" font-size="26" fill="url(#cokeGrad)" letter-spacing="-0.5">Coca-Cola</text>
+  <!-- Signature underline -->
+  <path d="M30,44 Q100,50 170,44" stroke="#E61226" stroke-width="1.5" fill="none"/>
 </svg>

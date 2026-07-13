@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <rect width="100%" height="100%" fill="none" />
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#e63946">Telkomsel</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 60" width="220" height="60">
+  <!-- T circle mark -->
+  <circle cx="26" cy="30" r="20" fill="none" stroke="#e2001a" stroke-width="3"/>
+  <text x="26" y="37" text-anchor="middle" font-family="'Arial', sans-serif" font-weight="900" font-size="22" fill="#e2001a">T</text>
+  <!-- Telkomsel wordmark -->
+  <text x="54" y="28" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="20" fill="#e2001a" letter-spacing="0.5">Telkomsel</text>
+  <text x="54" y="42" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="7" fill="#888" letter-spacing="1.5">THE FUTURE IS HERE</text>
 </svg>

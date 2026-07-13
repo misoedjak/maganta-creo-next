@@ -1,4 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <rect width="100%" height="100%" fill="none" />
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#1c3f60">Bank Mandiri</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 60" width="240" height="60">
+  <!-- Gold accent bar -->
+  <rect x="10" y="14" width="6" height="32" rx="3" fill="#f5a623"/>
+  <!-- mandiri wordmark -->
+  <text x="24" y="40" font-family="'Segoe UI', Arial, sans-serif" font-weight="700" font-size="28" fill="#003868" letter-spacing="-0.5">mandiri</text>
+  <!-- bank text above -->
+  <text x="24" y="20" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="10" fill="#003868" letter-spacing="2">BANK</text>
 </svg>

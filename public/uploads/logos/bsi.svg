@@ -1,4 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 60" width="200" height="60">
-  <rect width="100%" height="100%" fill="none" />
-  <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="22" fill="#007f5f">BSI</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 60" width="180" height="60">
+  <!-- BSI hexagonal mark -->
+  <polygon points="28,8 44,16 44,32 28,40 12,32 12,16" fill="#006B3F" stroke="#006B3F" stroke-width="1"/>
+  <text x="28" y="28" text-anchor="middle" font-family="'Arial Black', Arial, sans-serif" font-weight="900" font-size="12" fill="#ffffff" letter-spacing="0.5">BSI</text>
+  <!-- BSI text -->
+  <text x="52" y="22" font-family="'Segoe UI', Arial, sans-serif" font-weight="800" font-size="22" fill="#006B3F" letter-spacing="1">BSI</text>
+  <text x="52" y="36" font-family="'Segoe UI', Arial, sans-serif" font-weight="400" font-size="7" fill="#666" letter-spacing="1">BANK SYARIAH INDONESIA</text>
+  <rect x="52" y="40" width="90" height="2" rx="1" fill="#C5A028"/>
 </svg>
