@@ -136,7 +136,13 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
   };
 
   const formattedWhatsapp = profile?.whatsapp 
-    ? `https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`
+    ? (() => {
+        let clean = profile.whatsapp.replace(/[^0-9]/g, "");
+        if (clean.startsWith("0")) {
+          clean = "62" + clean.substring(1);
+        }
+        return `https://wa.me/${clean}`;
+      })()
     : "https://wa.me/6281234567890";
 
   return (

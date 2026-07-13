@@ -38,7 +38,10 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
   };
 
   const handleInquiry = (productName: string, priceStr: string) => {
-    const cleanNumber = whatsappNumber.replace(/[^0-9]/g, "");
+    let cleanNumber = whatsappNumber.replace(/[^0-9]/g, "");
+    if (cleanNumber.startsWith("0")) {
+      cleanNumber = "62" + cleanNumber.substring(1);
+    }
     const message = encodeURIComponent(`Halo Maganta Kreasi, saya tertarik untuk menyewa/memesan produk berikut:\n\n*Produk:* ${productName}\n*Harga:* ${priceStr}\n\nMohon info ketersediaan untuk event saya. Terima kasih!`);
     window.open(`https://wa.me/${cleanNumber}?text=${message}`, "_blank");
   };

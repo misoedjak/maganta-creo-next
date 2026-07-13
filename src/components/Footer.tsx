@@ -23,8 +23,16 @@ export default function Footer({ profile }: FooterProps) {
     ? `https://instagram.com/${profile.instagram}`
     : "#";
 
+  const formatWhatsappNumber = (num: string) => {
+    let clean = num.replace(/[^0-9]/g, "");
+    if (clean.startsWith("0")) {
+      clean = "62" + clean.substring(1);
+    }
+    return clean;
+  };
+
   const primaryWaLink = profile?.whatsapp
-    ? `https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`
+    ? `https://wa.me/${formatWhatsappNumber(profile.whatsapp)}`
     : "#";
 
   return (
@@ -116,7 +124,7 @@ export default function Footer({ profile }: FooterProps) {
               {profile?.whatsapp && (
                 <li className="flex items-center gap-3">
                   <a 
-                    href={`https://wa.me/${profile.whatsapp.replace(/[^0-9]/g, "")}`}
+                    href={`https://wa.me/${formatWhatsappNumber(profile.whatsapp)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-3 hover:text-brand-yellow transition-colors"
@@ -133,7 +141,7 @@ export default function Footer({ profile }: FooterProps) {
               {profile?.whatsapp2 && (
                 <li className="flex items-center gap-3">
                   <a 
-                    href={`https://wa.me/${profile.whatsapp2.replace(/[^0-9]/g, "")}`}
+                    href={`https://wa.me/${formatWhatsappNumber(profile.whatsapp2)}`}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-3 hover:text-brand-yellow transition-colors"
