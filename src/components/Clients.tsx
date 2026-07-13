@@ -51,7 +51,7 @@ export default function Clients({ clients = [] }: ClientsProps) {
               <img 
                 src={client.logoUrl} 
                 alt={client.name} 
-                className="max-h-12 max-w-[120px] md:max-w-[140px] object-contain opacity-75 hover:opacity-100 transition-opacity filter grayscale hover:grayscale-0"
+                className="max-h-12 max-w-[120px] md:max-w-[140px] object-contain opacity-95 hover:opacity-100 transition-opacity"
               />
             </motion.div>
           ))}
