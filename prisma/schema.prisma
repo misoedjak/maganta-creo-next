@@ -173,3 +173,27 @@ model StatCard {
   order     Int      @default(0)
   createdAt DateTime @default(now())
 }
+
+model ProductCategory {
+  id        String    @id @default(uuid())
+  name      String    @unique
+  slug      String    @unique
+  products  Product[]
+  createdAt DateTime  @default(now())
+}
+
+model Product {
+  id          String           @id @default(uuid())
+  name        String
+  slug        String           @unique
+  price       Float
+  priceUnit   String           @default("pcs")
+  description String?
+  image       String?
+  featured    Boolean          @default(false)
+  status      String           @default("active")
+  categoryId  String
+  category    ProductCategory  @relation(fields: [categoryId], references: [id])
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}

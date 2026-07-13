@@ -20,7 +20,8 @@ import {
   ChevronDown,
   ChevronRight,
   Sparkles,
-  Info
+  Info,
+  Package // Added Package icon
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -46,6 +47,7 @@ const menuGroups: Record<string, MenuGroup> = {
   content: {
     label: "Content Management",
     items: [
+      { name: "Products", href: "/admin/products", icon: Package },
       { name: "Portfolio", href: "/admin/portfolio", icon: Briefcase },
       { name: "Services", href: "/admin/categories", icon: FolderTree },
       { name: "Gallery", href: "/admin/gallery", icon: Image },

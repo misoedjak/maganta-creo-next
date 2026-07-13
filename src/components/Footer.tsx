@@ -78,6 +78,7 @@ export default function Footer({ profile }: FooterProps) {
               {[
                 { name: "Home", href: "/#" },
                 { name: "About Workshop", href: "/#about" },
+                { name: "Rental Products", href: "/products" },
                 { name: "Fabrication Portfolio", href: "/#portfolio" },
                 { name: "Our Process", href: "/#process" }
               ].map(link => (
