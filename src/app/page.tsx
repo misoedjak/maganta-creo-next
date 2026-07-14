@@ -126,7 +126,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
   return (
     <main className="min-h-screen bg-brand-light text-brand-dark font-sans selection:bg-[#FFD400] selection:text-black">
-      <Navbar />
+      <Navbar whatsappNumber={profile?.whatsapp || profile?.phone || "6282115151515"} />
       <Hero settings={heroSettings} />
       <About settings={aboutSettings} stats={statCards} />
       <FeaturedProducts 

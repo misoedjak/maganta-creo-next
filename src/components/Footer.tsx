@@ -31,14 +31,12 @@ export default function Footer({ profile }: FooterProps) {
     return clean;
   };
 
-  const primaryWaLink = profile?.whatsapp
-    ? `https://wa.me/${formatWhatsappNumber(profile.whatsapp)}`
-    : "#";
+
 
   return (
     <footer className="bg-brand-magenta text-white pt-20 pb-10 border-t border-white/10 shadow-inner">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-10 gap-x-6 md:gap-12 mb-16">
           
           {/* Brand & Desc */}
           <div>

@@ -15,19 +15,19 @@ interface WhyChooseUsProps {
   advantages?: AdvantageItem[];
 }
 
-function getIcon(name: string) {
+function getIcon(name: string, size = 32) {
   switch (name) {
-    case "Hammer": return <Hammer size={32} />;
-    case "ShieldCheck": return <ShieldCheck size={32} />;
-    case "PenTool": return <PenTool size={32} />;
-    case "Clock": return <Clock size={32} />;
-    case "Map": return <Map size={32} />;
-    case "Drill": return <Drill size={32} />;
-    case "Award": return <Award size={32} />;
-    case "Palette": return <Palette size={32} />;
-    case "Settings": return <Settings size={32} />;
-    case "Sparkles": return <Sparkles size={32} />;
-    default: return <Hammer size={32} />;
+    case "Hammer": return <Hammer size={size} />;
+    case "ShieldCheck": return <ShieldCheck size={size} />;
+    case "PenTool": return <PenTool size={size} />;
+    case "Clock": return <Clock size={size} />;
+    case "Map": return <Map size={size} />;
+    case "Drill": return <Drill size={size} />;
+    case "Award": return <Award size={size} />;
+    case "Palette": return <Palette size={size} />;
+    case "Settings": return <Settings size={size} />;
+    case "Sparkles": return <Sparkles size={size} />;
+    default: return <Hammer size={size} />;
   }
 }
 
@@ -46,21 +46,21 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
     : fallbackFeatures.map(f => ({ ...f, bgImageUrl: null }));
 
   return (
-    <section className="py-16 md:py-24 bg-brand-light relative border-t border-brand-magenta/5" suppressHydrationWarning>
+    <section className="py-12 md:py-24 bg-brand-light relative border-t border-brand-magenta/5" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Keunggulan Maganta Kreasi</h2>
-          <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Keunggulan Maganta Kreasi</h2>
+          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Kami tidak menggunakan pihak ketiga. Kami membangun sendiri. Inilah mengapa agensi dan brand top mempercayai kami.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6">
           {listToRender.map((feature, i) => {
             const hasBg = !!feature.bgImageUrl;
 
@@ -87,8 +87,9 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
 
                     {/* Content Overlay */}
                     <div className="relative z-20 flex flex-col h-full justify-end">
-                      <div className="absolute top-0 right-0 w-12 h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-brand-yellow">
-                        {getIcon(feature.icon)}
+                      <div className="absolute top-2 right-2 w-8 h-8 sm:w-12 sm:h-12 rounded-full bg-white/10 backdrop-blur-md flex items-center justify-center text-brand-yellow">
+                        <span className="sm:hidden">{getIcon(feature.icon, 18)}</span>
+                        <span className="hidden sm:inline">{getIcon(feature.icon, 24)}</span>
                       </div>
                       <span className="font-semibold text-xs tracking-wider uppercase mb-1.5 text-brand-yellow">
                         Keunggulan
@@ -105,11 +106,12 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
                 ) : (
                   <>
                     {/* Standard Card view */}
-                    <div className="w-16 h-16 rounded-2xl bg-brand-magenta/10 flex items-center justify-center text-brand-magenta mb-6 group-hover:scale-110 group-hover:bg-brand-magenta/20 transition-all">
-                      {getIcon(feature.icon)}
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-brand-magenta/10 flex items-center justify-center text-brand-magenta mb-3 md:mb-6 group-hover:scale-110 group-hover:bg-brand-magenta/20 transition-all">
+                      <span className="md:hidden">{getIcon(feature.icon, 20)}</span>
+                      <span className="hidden md:inline">{getIcon(feature.icon, 32)}</span>
                     </div>
-                    <h3 className="font-heading text-xl font-bold mb-3 text-brand-dark">{feature.title}</h3>
-                    <p className="text-zinc-600 leading-relaxed">{feature.desc}</p>
+                    <h3 className="font-heading text-xs sm:text-base md:text-xl font-bold mb-2 text-brand-dark">{feature.title}</h3>
+                    <p className="text-zinc-600 text-xs md:text-sm leading-relaxed line-clamp-3">{feature.desc}</p>
                   </>
                 )}
               </motion.div>
@@ -125,5 +127,5 @@ function classNameHelperAdvantage(hasBg: boolean) {
   if (hasBg) {
     return "relative overflow-hidden group h-[26rem] rounded-3xl border border-brand-magenta/10 shadow-lg cursor-pointer flex flex-col justify-end p-8";
   }
-  return "glass-card p-8 group hover:border-brand-magenta/40 transition-colors";
+  return "glass-card p-4 md:p-8 group hover:border-brand-magenta/40 transition-colors";
 }

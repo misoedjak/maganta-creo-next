@@ -40,16 +40,16 @@ export default function Process({ steps = [] }: ProcessProps) {
       }));
 
   return (
-    <section id="process" className="py-16 md:py-24 bg-brand-light relative overflow-hidden border-t border-brand-magenta/5" suppressHydrationWarning>
+    <section id="process" className="py-12 md:py-24 bg-brand-light relative overflow-hidden border-t border-brand-magenta/5" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Proses Pengerjaan</h2>
-          <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Proses Pengerjaan</h2>
+          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
             Pendekatan sistematis mulai dari konsep hingga arsitektur event yang memukau.
           </p>
         </motion.div>
@@ -62,15 +62,15 @@ export default function Process({ steps = [] }: ProcessProps) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="flex gap-6 md:gap-10 mb-6 relative"
+              className="flex gap-4 md:gap-10 mb-5 md:mb-6 relative"
             >
               {/* Vertical connector line */}
               {i !== listToRender.length - 1 && (
-                <div className="absolute left-6 top-16 bottom-[-24px] w-[2px] bg-gradient-to-b from-brand-magenta/50 to-transparent md:left-8 z-10" />
+                <div className="absolute left-4 top-10 bottom-[-24px] w-[2px] bg-gradient-to-b from-brand-magenta/50 to-transparent md:left-8 md:top-16 z-10" />
               )}
 
               {/* Step Number Circle */}
-              <div className="w-12 h-12 md:w-16 md:h-16 shrink-0 rounded-full bg-brand-magenta border-2 border-brand-magenta/30 flex items-center justify-center font-heading text-lg md:text-xl font-bold text-white z-10 shadow-lg shadow-brand-magenta/30">
+              <div className="w-8 h-8 md:w-16 md:h-16 shrink-0 rounded-full bg-brand-magenta border-2 border-brand-magenta/30 flex items-center justify-center font-heading text-xs md:text-xl font-bold text-white z-10 shadow-lg shadow-brand-magenta/30">
                 {step.num}
               </div>
 
@@ -88,15 +88,15 @@ export default function Process({ steps = [] }: ProcessProps) {
                     />
                     {/* Text on top */}
                     <div className="relative z-20 p-5 md:p-7 flex flex-col justify-center h-full">
-                      <h3 className="font-heading text-xl md:text-2xl font-bold text-white mb-1">{step.title}</h3>
-                      <p className="text-white/75 text-sm md:text-base leading-relaxed">{step.desc}</p>
+                      <h3 className="font-heading text-sm md:text-2xl font-bold text-white mb-1">{step.title}</h3>
+                      <p className="text-white/75 text-xs md:text-base leading-relaxed">{step.desc}</p>
                     </div>
                   </div>
                 ) : (
                   /* Plain card fallback */
-                  <div className="glass-card p-5 md:p-7 pt-4 h-full">
-                    <h3 className="font-heading text-xl md:text-2xl font-bold mb-2 text-brand-dark">{step.title}</h3>
-                    <p className="text-zinc-600 text-sm md:text-base leading-relaxed">{step.desc}</p>
+                  <div className="glass-card p-3 md:p-7 pt-3 md:pt-4 h-full">
+                    <h3 className="font-heading text-sm md:text-2xl font-bold mb-1 md:mb-2 text-brand-dark">{step.title}</h3>
+                    <p className="text-zinc-600 text-xs md:text-base leading-relaxed">{step.desc}</p>
                   </div>
                 )}
               </div>

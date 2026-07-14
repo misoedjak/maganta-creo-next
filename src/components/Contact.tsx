@@ -8,8 +8,6 @@ import {
   FileText, 
   MapPin, 
   Loader2, 
-  Phone,
-  MessageSquare,
   RefreshCw
 } from "lucide-react";
 import { 
@@ -162,7 +160,7 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
     : "https://wa.me/6281234567890";
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-brand-magenta text-white relative" suppressHydrationWarning>
+    <section id="contact" className="py-12 md:py-24 bg-brand-magenta text-white relative" suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12" suppressHydrationWarning>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -172,25 +170,25 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading text-5xl md:text-7xl font-bold leading-tight mb-8 text-white">
+            <h2 className="font-heading text-2xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6 text-white">
               Mari Bangun Event Anda Bersama Kami.
             </h2>
-            <p className="text-xl font-medium text-white/80 mb-10 max-w-lg">
+            <p className="text-sm sm:text-base md:text-lg text-white/80 mb-8 max-w-lg">
               Hubungi tim kami hari ini untuk mendiskusikan kebutuhan fabrikasi event Anda, anggaran, dan meminta penawaran detail.
             </p>
             
-            <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center" suppressHydrationWarning>
+            <div className="w-full flex flex-col sm:flex-row gap-4 items-center" suppressHydrationWarning>
               <a
                 href={formattedWhatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-brand-yellow text-black font-semibold hover:bg-white transition-colors shadow-lg shadow-black/10"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-brand-yellow text-black font-semibold text-sm sm:text-base hover:bg-white transition-colors shadow-lg shadow-black/10"
               >
                 <MessageCircle size={20} /> WhatsApp
               </a>
               <a
                 href={`mailto:${profile?.email || "hello@magantakreasi.com"}`}
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-brand-magenta transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta transition-colors"
               >
                 <Mail size={20} /> Email
               </a>
@@ -198,7 +196,7 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
               {/* Request Quotation Dialog Trigger */}
               <button 
                 onClick={() => setIsOpen(true)}
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold hover:bg-white hover:text-brand-magenta transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta transition-colors"
               >
                 <FileText size={20} /> Minta Penawaran
               </button>
@@ -391,13 +389,73 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
             viewport={{ once: true }}
             className="bg-[#8a1a45] text-white rounded-3xl overflow-hidden shadow-2xl border border-white/10"
           >
-            <div className="p-8 pb-6">
-              <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2 text-white">
-                <MapPin className="text-brand-yellow" /> Kantor & Workshop
-              </h3>
-              <p className="text-pink-100/90 mb-2 whitespace-pre-line text-sm leading-relaxed">
-                {profile?.address || "Jakarta, Indonesia\nMelayani fabrikasi untuk seluruh Indonesia."}
-              </p>
+            <div data-impeccable-variants="033bc5ac" data-impeccable-variant-count="3" style={{ display: "contents" }}>
+              {/* impeccable-variants-start 033bc5ac */}
+              {/* Original */}
+              <div data-impeccable-variant="original">
+                <div className="p-8 pb-6">
+                  <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2 text-white">
+                    <MapPin className="text-brand-yellow" /> Kantor & Workshop
+                  </h3>
+                  <p className="text-pink-100/90 mb-2 whitespace-pre-line text-sm leading-relaxed">
+                    {profile?.address || "Jakarta, Indonesia\nMelayani fabrikasi untuk seluruh Indonesia."}
+                  </p>
+                </div>
+              </div>
+              {/* Variants: insert below this line */}
+              <style data-impeccable-css="033bc5ac">{`
+                @scope ([data-impeccable-variant="1"]) {
+                  :scope > div {
+                    padding: 2rem;
+                  }
+                }
+                @scope ([data-impeccable-variant="2"]) {
+                  :scope > div {
+                    padding: 2rem;
+                    background: linear-gradient(135deg, #8a1a45 0%, #be3168 100%);
+                  }
+                }
+                @scope ([data-impeccable-variant="3"]) {
+                  :scope > div {
+                    padding: 2.5rem 2rem;
+                    border-top: 4px solid #FFD400;
+                  }
+                }
+              `}</style>
+              <div data-impeccable-variant="1">
+                <div className="p-8 pb-6">
+                  <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2 text-white">
+                    <MapPin className="text-brand-yellow" /> Kantor & Workshop
+                  </h3>
+                  <p className="text-pink-100/90 mb-2 whitespace-pre-line text-sm leading-relaxed">
+                    {(profile?.address || "Jakarta, Indonesia").split(/Phone:/i)[0].trim()}
+                  </p>
+                </div>
+              </div>
+              <div data-impeccable-variant="2" style={{ display: "none" }}>
+                <div className="p-8 pb-6 rounded-3xl">
+                  <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/10 mb-4">
+                    <MapPin className="text-brand-yellow" size={20} />
+                  </div>
+                  <h3 className="font-heading text-xl font-bold mb-3 text-white">
+                    Lokasi Workshop
+                  </h3>
+                  <p className="text-white/90 whitespace-pre-line text-sm leading-relaxed">
+                    {(profile?.address || "Jakarta, Indonesia").split(/Phone:/i)[0].trim()}
+                  </p>
+                </div>
+              </div>
+              <div data-impeccable-variant="3" style={{ display: "none" }}>
+                <div className="p-8 pb-6">
+                  <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2 text-white">
+                    <MapPin className="text-brand-yellow" /> Kantor & Workshop Utama
+                  </h3>
+                  <p className="text-pink-100/80 mb-2 whitespace-pre-line text-sm leading-relaxed font-light">
+                    {(profile?.address || "Jakarta, Indonesia").split(/Phone:/i)[0].trim()}
+                  </p>
+                </div>
+              </div>
+              {/* impeccable-variants-end 033bc5ac */}
             </div>
 
             {/* Google Maps Embed */}
@@ -407,7 +465,8 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
                 if (profile?.mapUrl && profile.mapUrl.includes("embed")) {
                   mapSrc = profile.mapUrl;
                 } else if (profile?.address) {
-                  mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(profile.address)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
+                  const cleanAddrForMap = profile.address.split(/Phone:/i)[0].trim();
+                  mapSrc = `https://maps.google.com/maps?q=${encodeURIComponent(cleanAddrForMap)}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
                 }
                 return (
                   <>

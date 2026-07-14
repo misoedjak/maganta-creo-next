@@ -34,7 +34,7 @@ export default function About({ settings, stats }: AboutProps) {
   ];
 
   return (
-    <section id="about" className="pt-24 pb-16 bg-brand-light relative z-10">
+    <section id="about" className="py-12 md:py-24 bg-brand-light relative z-10">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
@@ -45,8 +45,8 @@ export default function About({ settings, stats }: AboutProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-brand-dark" dangerouslySetInnerHTML={{ __html: heading }} />
-            <div className="space-y-6 text-zinc-600 text-lg leading-relaxed">
+            <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-6 text-brand-dark" dangerouslySetInnerHTML={{ __html: heading }} />
+            <div className="space-y-6 text-zinc-600 text-sm sm:text-base md:text-lg leading-relaxed">
               <p>{paragraph1}</p>
               <p>{paragraph2}</p>
               
@@ -71,7 +71,7 @@ export default function About({ settings, stats }: AboutProps) {
           >
             {statCards.map((stat) => (
               <div key={stat.id} className="glass-card p-5 md:p-8 flex flex-col items-center justify-center text-center group hover:bg-brand-magenta/5 hover:-translate-y-1 transition-all duration-300">
-                <span className="font-heading text-4xl md:text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform">
+                <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform">
                   {stat.number}
                 </span>
                 <span className="text-xs md:text-sm uppercase tracking-wider text-zinc-500 font-medium">
