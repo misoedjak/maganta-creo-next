@@ -79,13 +79,13 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
         </div>
 
         {/* Products Swipeable Track */}
-        <div className="flex lg:grid lg:grid-cols-4 items-stretch gap-4 md:gap-6 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 lg:mx-0 lg:px-0 scrollbar-none">
+        <div className="flex items-stretch gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-none">
           {products.map((product, idx) => {
             const formattedPrice = `${formatPrice(product.price)} / ${product.priceUnit}`;
             return (
               <div 
                 key={product.id} 
-                className="min-w-[70vw] sm:min-w-[45vw] lg:min-w-0 snap-start snap-always shrink-0 lg:shrink flex w-full"
+                className="min-w-[70vw] sm:min-w-[45vw] lg:min-w-[280px] lg:max-w-[280px] snap-start snap-always shrink-0 flex"
               >
                 <motion.div
                   initial={{ opacity: 0, y: 30 }}

@@ -109,10 +109,10 @@ export default async function Home({ searchParams }: HomeProps) {
     orderBy: { order: "asc" },
   });
 
-  // Query featured products for the homepage (or first 4 active as fallback)
+  // Query featured products for the homepage (or first 8 active as fallback)
   const dbFeaturedProducts = await prisma.product.findMany({
     where: { featured: true, status: "active" },
-    take: 4,
+    take: 8,
     include: { category: true }
   });
 
@@ -120,7 +120,7 @@ export default async function Home({ searchParams }: HomeProps) {
     ? dbFeaturedProducts
     : await prisma.product.findMany({
         where: { status: "active" },
-        take: 4,
+        take: 8,
         include: { category: true }
       });
 
