@@ -35,7 +35,7 @@ export default function Hero({ settings }: HeroProps) {
         <img
           src={bgImageUrl}
           alt="Concert Stage"
-          className="w-full h-full object-cover scale-105 animate-[pulse_20s_ease-in-out_infinite_alternate]"
+          className="w-full h-full object-cover scale-105"
         />
       </div>
 
