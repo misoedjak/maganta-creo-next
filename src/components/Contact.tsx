@@ -82,19 +82,6 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
     }
   }, [selectedEventId, categories]);
 
-  // Handle ?quote=open query parameter
-  useEffect(() => {
-    if (quoteParam === "open") {
-      setTimeout(() => {
-        setIsOpen(true);
-      }, 0);
-      // Clean up URL so refreshing doesn't keep it open
-      if (typeof window !== "undefined") {
-        const newUrl = window.location.pathname + window.location.hash;
-        window.history.replaceState(null, "", newUrl);
-      }
-    }
-  }, [quoteParam]);
 
   const handleSelectChange = (val: string) => {
     if (val === "CUSTOM") {
