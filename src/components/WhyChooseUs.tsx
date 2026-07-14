@@ -106,7 +106,7 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
                 ) : (
                   <>
                     {/* Standard Card view */}
-                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-brand-magenta/10 flex items-center justify-center text-brand-magenta mb-3 md:mb-6 group-hover:scale-110 group-hover:bg-brand-magenta/20 transition-all">
+                    <div className="w-10 h-10 md:w-16 md:h-16 rounded-xl md:rounded-2xl bg-brand-magenta/10 flex items-center justify-center text-brand-magenta mb-3 md:mb-6 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-brand-magenta/20 transition-all duration-300">
                       <span className="md:hidden">{getIcon(feature.icon, 20)}</span>
                       <span className="hidden md:inline">{getIcon(feature.icon, 32)}</span>
                     </div>
@@ -125,7 +125,7 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
 
 function classNameHelperAdvantage(hasBg: boolean) {
   if (hasBg) {
-    return "relative overflow-hidden group h-[26rem] rounded-3xl border border-brand-magenta/10 shadow-lg cursor-pointer flex flex-col justify-end p-8";
+    return "relative overflow-hidden group h-[26rem] rounded-3xl border border-brand-magenta/10 shadow-lg hover:shadow-2xl hover:shadow-brand-magenta/10 hover:-translate-y-1.5 cursor-pointer flex flex-col justify-end p-8 transition-all duration-300";
   }
-  return "glass-card p-4 md:p-8 group hover:border-brand-magenta/40 transition-colors";
+  return "glass-card p-4 md:p-8 group hover:-translate-y-1.5 hover:border-[#be3168]/40 hover:shadow-xl hover:shadow-brand-magenta/5 hover:bg-gradient-to-br hover:from-white hover:to-[#be3168]/[0.02] transition-all duration-300";
 }

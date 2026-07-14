@@ -72,10 +72,12 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
     if (selectedEventId && categories) {
       const found = categories.find(c => c.id === selectedEventId);
       if (found) {
-        setEventType(found.name);
-        setIsCustom(false);
-        setCustomEventType("");
-        setIsOpen(true);
+        setTimeout(() => {
+          setEventType(found.name);
+          setIsCustom(false);
+          setCustomEventType("");
+          setIsOpen(true);
+        }, 0);
       }
     }
   }, [selectedEventId, categories]);
@@ -83,7 +85,9 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
   // Handle ?quote=open query parameter
   useEffect(() => {
     if (quoteParam === "open") {
-      setIsOpen(true);
+      setTimeout(() => {
+        setIsOpen(true);
+      }, 0);
       // Clean up URL so refreshing doesn't keep it open
       if (typeof window !== "undefined") {
         const newUrl = window.location.pathname + window.location.hash;
@@ -129,8 +133,9 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
         toast.success("Quote request submitted successfully! We'll get back to you soon.");
         setIsOpen(false);
         resetForm();
-      } catch (err: any) {
-        toast.error(err.message || "Failed to submit quote request.");
+      } catch (err) {
+        const error = err as Error;
+        toast.error(error.message || "Failed to submit quote request.");
       }
     });
   };
@@ -182,13 +187,13 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
                 href={formattedWhatsapp}
                 target="_blank"
                 rel="noreferrer"
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-brand-yellow text-black font-semibold text-sm sm:text-base hover:bg-white transition-colors shadow-lg shadow-black/10"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-brand-yellow text-black font-semibold text-sm sm:text-base hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-lg shadow-black/10 hover:shadow-brand-yellow/20"
               >
                 <MessageCircle size={20} /> WhatsApp
               </a>
               <a
                 href={`mailto:${profile?.email || "hello@magantakreasi.com"}`}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <Mail size={20} /> Email
               </a>
@@ -196,7 +201,7 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
               {/* Request Quotation Dialog Trigger */}
               <button 
                 onClick={() => setIsOpen(true)}
-                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta transition-colors"
+                className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta hover:scale-105 active:scale-95 transition-all duration-200"
               >
                 <FileText size={20} /> Minta Penawaran
               </button>
@@ -369,7 +374,7 @@ export default function Contact({ profile, categories, selectedEventId }: Contac
                       <Button
                         type="submit"
                         disabled={isPending}
-                        className="bg-brand-yellow text-black hover:bg-brand-magenta hover:text-white font-semibold flex items-center gap-1.5 transition-all shadow-md"
+                        className="bg-[#FFD400] text-black hover:bg-brand-magenta hover:text-white font-semibold flex items-center gap-1.5 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 shadow-md shadow-brand-yellow/10"
                       >
                         {isPending && <Loader2 className="h-4 w-4 animate-spin" />}
                         <span>Kirim Permintaan</span>

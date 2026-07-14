@@ -63,7 +63,7 @@ export default function Services({ categories = [] }: ServicesProps) {
           <div className="relative group/slider">
             <div 
               ref={scrollRef}
-              className="flex items-stretch gap-4 md:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scroll-pl-6 md:scroll-pl-12 scrollbar-none"
+              className="flex lg:grid lg:grid-cols-3 items-stretch gap-4 md:gap-8 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 lg:mx-0 lg:px-0 scroll-pl-6 md:scroll-pl-12 lg:scroll-pl-0 scrollbar-none"
             >
               {categories.map((category, i) => {
               const hasBg = !!category.bgImageUrl;
@@ -71,7 +71,7 @@ export default function Services({ categories = [] }: ServicesProps) {
               return (
                 <div 
                   key={category.id} 
-                  className="min-w-[80vw] sm:min-w-[45vw] lg:min-w-[31%] snap-start snap-always shrink-0 flex"
+                  className="min-w-[80vw] sm:min-w-[45vw] lg:min-w-0 snap-start snap-always shrink-0 lg:shrink flex w-full"
                 >
                   <Link href={`/portfolio?category=${category.slug}`} className="w-full flex">
                     <motion.div
@@ -172,7 +172,7 @@ export default function Services({ categories = [] }: ServicesProps) {
 
 function classNameHelper(hasBg: boolean) {
   if (hasBg) {
-    return "relative w-full overflow-hidden group h-full min-h-[16rem] sm:min-h-[26rem] rounded-2xl sm:rounded-3xl border border-brand-magenta/10 shadow-lg hover:shadow-xl hover:shadow-brand-magenta/10 hover:border-brand-magenta/30 cursor-pointer flex flex-col justify-end p-4 sm:p-8 transition-all duration-300";
+    return "relative w-full overflow-hidden group h-full min-h-[16rem] sm:min-h-[26rem] rounded-2xl sm:rounded-3xl border border-brand-magenta/10 shadow-lg hover:shadow-xl hover:shadow-brand-magenta/10 hover:border-[#be3168]/30 hover:-translate-y-2 cursor-pointer flex flex-col justify-end p-4 sm:p-8 transition-all duration-300";
   }
-  return "glass-card w-full p-4 sm:p-8 relative overflow-hidden group hover:border-brand-magenta/40 hover:shadow-lg hover:shadow-brand-magenta/5 transition-all duration-300 h-full flex flex-col justify-between";
+  return "glass-card w-full p-4 sm:p-8 relative overflow-hidden group hover:-translate-y-2 hover:border-[#be3168]/40 hover:shadow-xl hover:shadow-brand-magenta/10 transition-all duration-300 h-full flex flex-col justify-between";
 }

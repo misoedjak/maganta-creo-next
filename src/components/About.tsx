@@ -67,14 +67,19 @@ export default function About({ settings, stats }: AboutProps) {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-2 gap-6"
+            className="grid grid-cols-2 gap-6 lg:pb-8"
           >
-            {statCards.map((stat) => (
-              <div key={stat.id} className="glass-card p-5 md:p-8 flex flex-col items-center justify-center text-center group hover:bg-brand-magenta/5 hover:-translate-y-1 transition-all duration-300">
-                <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform">
+            {statCards.map((stat, idx) => (
+              <div 
+                key={stat.id} 
+                className={`glass-card p-5 md:p-8 flex flex-col items-center justify-center text-center group hover:bg-brand-magenta/5 hover:-translate-y-2 hover:shadow-xl hover:shadow-brand-magenta/10 hover:border-[#be3168]/30 transition-all duration-300 ${
+                  idx % 2 === 1 ? "lg:translate-y-8" : ""
+                }`}
+              >
+                <span className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform duration-300">
                   {stat.number}
                 </span>
-                <span className="text-xs md:text-sm uppercase tracking-wider text-zinc-500 font-medium">
+                <span className="text-xs md:text-sm uppercase tracking-wider text-zinc-500 font-semibold">
                   {stat.label}
                 </span>
               </div>

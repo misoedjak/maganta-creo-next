@@ -87,7 +87,7 @@ export default function Navbar({ whatsappNumber = "6282115151515" }: NavbarProps
           mobileMenuOpen
             ? "bg-transparent py-2.5"
             : (!isHome || scrolled) 
-              ? "bg-brand-magenta/90 backdrop-blur-md py-2.5 lg:py-4 border-b border-brand-magenta/20 shadow-md" 
+              ? "bg-gradient-to-r from-brand-magenta/95 via-[#8e244d]/95 to-brand-magenta/95 backdrop-blur-md py-2.5 lg:py-4 border-b border-white/10 shadow-lg shadow-black/10" 
               : "bg-transparent py-4 lg:py-6"
         }`}
       >
@@ -105,14 +105,15 @@ export default function Navbar({ whatsappNumber = "6282115151515" }: NavbarProps
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-white/80 hover:text-[#FFD400] transition-colors"
+                className="text-sm font-medium text-white/80 hover:text-[#FFD400] transition-all relative py-1.5 group"
               >
-                {link.name}
+                <span>{link.name}</span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#FFD400] transition-all duration-300 group-hover:w-full" />
               </Link>
             ))}
             <Link
               href={`${pathname}?quote=open`}
-              className="px-6 py-2.5 rounded-full bg-[#FFD400] text-black font-semibold hover:bg-white transition-colors"
+              className="px-6 py-2.5 rounded-full bg-[#FFD400] text-black font-semibold hover:bg-white hover:scale-105 active:scale-95 transition-all duration-200 shadow-md hover:shadow-lg hover:shadow-[#FFD400]/25"
             >
               Pesan disini
             </Link>
