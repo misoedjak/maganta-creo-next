@@ -45,17 +45,17 @@ export default async function AboutPage() {
                 Who We Are
               </h2>
               <p className="text-white/70 leading-relaxed font-light">
-                {profile?.description || "Maganta Kreasi is Indonesia's premier event fabrication and decoration specialist. Operating from our massive in-house workshop, we bring visionary designs to life with unparalleled structural stability. From corporate backdrops to large exhibition stands, we build the foundations of successful event productions."}
+                {profile?.description || "Maganta Kreasi adalah spesialis fabrikasi dan dekorasi event premier di Indonesia. Beroperasi dari workshop in-house kami yang luas, kami mewujudkan desain visioner menjadi nyata dengan stabilitas struktural yang tak tertandingi. Dari backdrop perusahaan hingga stan pameran besar, kami membangun fondasi produksi event yang sukses."}
               </p>
               
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
                 {[
-                  "In-house Production",
-                  "Expert Fabricators",
-                  "Nationwide Logistics",
-                  "Double-Deck Engineering",
-                  "Structural Calculations",
-                  "Premium Matte Finishes"
+                  "Produksi In-house",
+                  "Fabrikator Ahli",
+                  "Logistik Nasional",
+                  "Teknik Konstruksi Dua Tingkat",
+                  "Kalkulasi Struktural Aman",
+                  "Finishing Matte Premium"
                 ].map((item, i) => (
                   <li key={i} className="flex items-center gap-2.5 text-white/90 text-sm">
                     <CheckCircle2 className="text-[#FFD400] shrink-0" size={16} />

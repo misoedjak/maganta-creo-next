@@ -45,7 +45,7 @@ export default function Hero({ settings }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white"
+            className="font-heading text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 text-white drop-shadow-md"
             dangerouslySetInnerHTML={{ __html: heading }}
           />
 
@@ -53,7 +53,7 @@ export default function Hero({ settings }: HeroProps) {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-base md:text-lg text-zinc-300 mb-10 max-w-2xl leading-relaxed"
+            className="text-base md:text-lg text-zinc-300 mb-10 max-w-2xl leading-relaxed drop-shadow-sm"
           >
             {subheading}
           </motion.p>

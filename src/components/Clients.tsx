@@ -36,7 +36,7 @@ export default function Clients({ clients = [] }: ClientsProps) {
           viewport={{ once: true }}
           className="mb-10 text-center flex flex-col items-center"
         >
-          <h2 className="font-heading text-3xl font-bold text-brand-magenta mb-2">Our Clients</h2>
+          <h2 className="font-heading text-3xl font-bold text-brand-magenta mb-2">Klien Kami</h2>
           <div className="w-12 h-1 bg-brand-yellow rounded-full" />
         </motion.div>
 

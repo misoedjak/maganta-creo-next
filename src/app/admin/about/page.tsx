@@ -11,17 +11,17 @@ export default async function AboutSettingsPage() {
 
   const defaultSettings = {
     id: "",
-    heading: "Precision Engineering, Exceptional Craftsmanship.",
-    paragraph1: "Maganta Kreasi is Indonesia's premier event fabrication and decoration specialist. We bring visionary event designs to life with unparalleled structural integrity and aesthetic perfection.",
-    paragraph2: "Operating from our massive in-house workshop, our team of structural engineers, carpenters, and visual artists craft bespoke exhibition booths, monumental festival stages, and immersive corporate event environments.",
-    features: "In-house Fabrication Workshop, Premium Structural Materials, Dedicated Project Managers"
+    heading: "Dedikasi untuk Kualitas & Presisi",
+    paragraph1: "Maganta Kreasi adalah spesialis fabrikasi dan dekorasi event premier di Indonesia. Kami mewujudkan desain event visioner dengan integritas struktural dan kesempurnaan estetika.",
+    paragraph2: "Beroperasi dari workshop in-house kami yang luas, tim kami membuat booth pameran custom, panggung festival monumental, dan lingkungan event korporat yang imersif.",
+    features: "Workshop Fabrikasi In-house, Material Struktural Premium, Manajer Proyek Terdedikasi"
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">About & Stats Settings</h1>
-        <p className="text-gray-500 mt-1">Manage description paragraphs, feature lists, and the numeric metrics cards displayed on the home page.</p>
+        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Pengaturan Tentang & Statistik</h1>
+        <p className="text-gray-500 mt-1">Kelola paragraf deskripsi, daftar fitur, dan metrik statistik yang ditampilkan di beranda.</p>
       </div>
 
       <AboutSettingsClient 

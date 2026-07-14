@@ -8,20 +8,20 @@ export default async function HeroSettingsPage() {
 
   const defaultSettings = {
     id: "",
-    heading: "Premium Event Fabrication & Design.",
-    subheading: "Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.",
+    heading: "Kontraktor & Vendor Booth Pameran Premium.",
+    subheading: "Solusi fabrikasi dan dekorasi event premium. Dari booth pameran custom hingga panggung festival berskala besar.",
     bgImageUrl: "https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2574&auto=format&fit=crop",
     ctaText: "Pesan disini",
     ctaLink: "#contact",
-    portfolioText: "View Portfolio",
+    portfolioText: "Lihat Portofolio",
     portfolioLink: "#portfolio",
   };
 
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Hero Section Settings</h1>
-        <p className="text-gray-500 mt-1">Manage titles, subtitles, background banner photos, and buttons in the landing section.</p>
+        <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Pengaturan Hero</h1>
+        <p className="text-gray-500 mt-1">Kelola judul, subjudul, foto latar belakang, dan tombol pada bagian utama.</p>
       </div>
 
       <HeroSettingsClient initialSettings={settings || defaultSettings} />

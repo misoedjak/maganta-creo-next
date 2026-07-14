@@ -115,17 +115,17 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
           <DialogHeader>
             <DialogTitle className="text-xl font-bold flex items-center gap-2">
               <FileText className="h-5 w-5 text-[#FFD400]" />
-              <span>Request Event Quotation</span>
+              <span>Minta Penawaran Event</span>
             </DialogTitle>
             <DialogDescription>
-              Fill out your project parameters below, and our fabrication team will prepare a structured proposal.
+              Isi detail proyek Anda di bawah ini, dan tim fabrikasi kami akan menyiapkan proposal terstruktur.
             </DialogDescription>
           </DialogHeader>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5 py-6 max-h-[65vh] overflow-y-auto px-2">
             {/* Name */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-contact">Contact Person Name *</Label>
+              <Label htmlFor="q-contact">Nama Narahubung *</Label>
               <Input
                 id="q-contact"
                 placeholder="e.g. Budi Santoso"
@@ -138,7 +138,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
             
             {/* Company */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-company">Company Name</Label>
+              <Label htmlFor="q-company">Nama Perusahaan</Label>
               <Input
                 id="q-company"
                 placeholder="e.g. PT Maju Bersama"
@@ -150,7 +150,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Phone */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-phone">WhatsApp/Phone Number *</Label>
+              <Label htmlFor="q-phone">Nomor WhatsApp/Telepon *</Label>
               <Input
                 id="q-phone"
                 placeholder="e.g. +62 812-3456-7890"
@@ -163,7 +163,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Email */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-email">Corporate Email *</Label>
+              <Label htmlFor="q-email">Email Perusahaan *</Label>
               <Input
                 id="q-email"
                 type="email"
@@ -177,7 +177,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Event Type */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-type">Event Type *</Label>
+              <Label htmlFor="q-type">Jenis Event *</Label>
               <select
                 id="q-type"
                 value={isCustom ? "CUSTOM" : (eventType || "")}
@@ -186,19 +186,19 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
                 required
                 className="flex h-10 w-full rounded-md border border-gray-200 bg-white px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-1 focus:ring-[#FFD400] disabled:cursor-not-allowed disabled:opacity-50"
               >
-                <option value="" disabled>Select event type...</option>
+                <option value="" disabled>Pilih jenis event...</option>
                 {categories.map((cat) => (
                   <option key={cat.id} value={cat.name}>
                     {cat.name}
                   </option>
                 ))}
-                <option value="CUSTOM">Custom (Type manually)</option>
+                <option value="CUSTOM">Custom (Ketik manual)</option>
               </select>
             </div>
 
             {isCustom && (
               <div className="space-y-1.5 md:col-span-2">
-                <Label htmlFor="q-custom-type">Specify Custom Event Type *</Label>
+                <Label htmlFor="q-custom-type">Sebutkan Jenis Event Custom *</Label>
                 <Input
                   id="q-custom-type"
                   placeholder="e.g. Virtual Reality Experience, Special Concert Stage"
@@ -212,7 +212,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Event Date */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-date">Target Event Date</Label>
+              <Label htmlFor="q-date">Tanggal Event</Label>
               <Input
                 id="q-date"
                 type="date"
@@ -224,7 +224,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Location */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-loc">Venue Location</Label>
+              <Label htmlFor="q-loc">Lokasi Venue</Label>
               <Input
                 id="q-loc"
                 placeholder="e.g. JCC Senayan, Jakarta"
@@ -236,7 +236,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Budget */}
             <div className="space-y-1.5">
-              <Label htmlFor="q-budget">Estimated Budget Range</Label>
+              <Label htmlFor="q-budget">Estimasi Anggaran</Label>
               <Input
                 id="q-budget"
                 placeholder="e.g. IDR 50M - 100M"
@@ -248,11 +248,11 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
 
             {/* Brief */}
             <div className="space-y-1.5 md:col-span-2">
-              <Label htmlFor="q-desc">Project Brief & Requirements *</Label>
+              <Label htmlFor="q-desc">Brief & Kebutuhan Proyek *</Label>
               <textarea
                 id="q-desc"
                 rows={4}
-                placeholder="Describe sizes, design themes, lighting preferences, and load-in schedules..."
+                placeholder="Deskripsikan ukuran, tema desain, preferensi pencahayaan, dan jadwal loading..."
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
                 className="w-full border border-gray-200 bg-white rounded-md p-3 text-sm focus:outline-none focus:ring-1 focus:ring-[#FFD400]"
@@ -272,7 +272,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
               }}
               disabled={isPending}
             >
-              Cancel
+              Batal
             </Button>
             <Button
               type="submit"
@@ -280,7 +280,7 @@ export default function QuoteDialog({ open, onOpenChange, categories, preselecte
               className="bg-[#FFD400] text-black hover:bg-[#e6be00] font-semibold flex items-center gap-1.5"
             >
               {isPending && <Loader2 className="h-4 w-4 animate-spin" />}
-              <span>Submit Request</span>
+              <span>Kirim Permintaan</span>
             </Button>
           </DialogFooter>
         </form>

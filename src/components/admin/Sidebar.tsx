@@ -38,36 +38,36 @@ interface MenuGroup {
 
 const menuGroups: Record<string, MenuGroup> = {
   sales: {
-    label: "Sales & Leads",
+    label: "Penjualan & Prospek",
     items: [
-      { name: "Quote Requests", href: "/admin/quotes", icon: Mail },
-      { name: "Clients", href: "/admin/clients", icon: Handshake },
+      { name: "Permintaan Penawaran", href: "/admin/quotes", icon: Mail },
+      { name: "Klien", href: "/admin/clients", icon: Handshake },
     ]
   },
   content: {
-    label: "Content Management",
+    label: "Manajemen Konten",
     items: [
-      { name: "Products", href: "/admin/products", icon: Package },
-      { name: "Portfolio", href: "/admin/portfolio", icon: Briefcase },
-      { name: "Services", href: "/admin/categories", icon: FolderTree },
-      { name: "Gallery", href: "/admin/gallery", icon: Image },
+      { name: "Produk Sewa", href: "/admin/products", icon: Package },
+      { name: "Portofolio", href: "/admin/portfolio", icon: Briefcase },
+      { name: "Layanan Pameran", href: "/admin/categories", icon: FolderTree },
+      { name: "Galeri", href: "/admin/gallery", icon: Image },
     ]
   },
   company: {
-    label: "Company Brand",
+    label: "Profil Perusahaan",
     items: [
-      { name: "Company Profile", href: "/admin/profile", icon: Building2 },
-      { name: "Hero Settings", href: "/admin/hero", icon: Sparkles },
-      { name: "About & Stats", href: "/admin/about", icon: Info },
-      { name: "Advantages", href: "/admin/advantages", icon: ShieldCheck },
-      { name: "Pipeline", href: "/admin/pipeline", icon: Milestone },
+      { name: "Tentang Perusahaan", href: "/admin/profile", icon: Building2 },
+      { name: "Pengaturan Hero", href: "/admin/hero", icon: Sparkles },
+      { name: "Tentang & Statistik", href: "/admin/about", icon: Info },
+      { name: "Keunggulan", href: "/admin/advantages", icon: ShieldCheck },
+      { name: "Proses Kerja", href: "/admin/pipeline", icon: Milestone },
     ]
   },
   admin: {
-    label: "Administration",
+    label: "Administrasi",
     items: [
-      { name: "Users", href: "/admin/users", icon: Users },
-      { name: "Settings", href: "/admin/settings", icon: Settings },
+      { name: "Pengguna", href: "/admin/users", icon: Users },
+      { name: "Pengaturan", href: "/admin/settings", icon: Settings },
     ]
   }
 };

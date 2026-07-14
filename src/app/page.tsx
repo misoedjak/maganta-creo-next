@@ -135,7 +135,7 @@ export default async function Home({ searchParams }: HomeProps) {
       />
       <Clients clients={clients} />
       <Services categories={categories} />
-      <Portfolio initialPortfolios={portfolios} categories={categories} />
+      <Portfolio initialPortfolios={portfolios} categories={categories} layoutMode="carousel" />
       <WhyChooseUs advantages={advantages} />
       <Process steps={pipelineSteps} />
       <Suspense fallback={null}>

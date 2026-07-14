@@ -35,10 +35,10 @@ export default async function AdminDashboardPage() {
   });
 
   const kpis = [
-    { name: "Total Projects", value: totalProjects, icon: Briefcase, color: "bg-blue-500" },
-    { name: "Categories", value: totalCategories, icon: FolderTree, color: "bg-purple-500" },
-    { name: "Quote Requests", value: totalQuotes, icon: Mail, color: "bg-amber-500" },
-    { name: "Est. Monthly Visitors", value: fakeVisitors, icon: Users, color: "bg-emerald-500" },
+    { name: "Total Proyek", value: totalProjects, icon: Briefcase, color: "bg-blue-500" },
+    { name: "Kategori", value: totalCategories, icon: FolderTree, color: "bg-purple-500" },
+    { name: "Permintaan Penawaran", value: totalQuotes, icon: Mail, color: "bg-amber-500" },
+    { name: "Estimasi Pengunjung Bulanan", value: fakeVisitors, icon: Users, color: "bg-emerald-500" },
   ];
 
   return (
@@ -46,8 +46,8 @@ export default async function AdminDashboardPage() {
       {/* Page Title & Quick Actions */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Dashboard Overview</h1>
-          <p className="text-gray-500 mt-1">Real-time status of your event fabrication platform.</p>
+          <h1 className="text-3xl font-bold text-gray-900 tracking-tight">Ringkasan Dashboard</h1>
+          <p className="text-gray-500 mt-1">Status waktu nyata dari platform fabrikasi event Anda.</p>
         </div>
         <div className="flex flex-wrap gap-3">
           <Link 
@@ -55,21 +55,21 @@ export default async function AdminDashboardPage() {
             className="flex items-center gap-2 bg-[#FFD400] text-black font-semibold px-4 py-2 rounded-xl text-sm shadow-md shadow-[#FFD400]/10 hover:bg-[#e6be00] transition-all"
           >
             <Plus className="h-4 w-4" />
-            <span>Add Portfolio</span>
+            <span>Tambah Portofolio</span>
           </Link>
           <Link 
             href="/admin/quotes" 
             className="flex items-center gap-2 bg-gray-900 text-white font-semibold px-4 py-2 rounded-xl text-sm hover:bg-gray-800 transition-all"
           >
             <Eye className="h-4 w-4" />
-            <span>View Quotes</span>
+            <span>Lihat Penawaran</span>
           </Link>
           <Link 
             href="/admin/profile" 
             className="flex items-center gap-2 bg-white text-gray-700 border border-gray-200 font-semibold px-4 py-2 rounded-xl text-sm hover:bg-gray-50 transition-all"
           >
             <Edit className="h-4 w-4" />
-            <span>Edit Profile</span>
+            <span>Ubah Profil</span>
           </Link>
         </div>
       </div>
@@ -100,10 +100,10 @@ export default async function AdminDashboardPage() {
           <div className="flex items-center justify-between border-b border-gray-100 pb-4">
             <div className="flex items-center gap-2">
               <Mail className="h-5 w-5 text-gray-400" />
-              <h2 className="font-semibold text-lg text-gray-900">Recent Quote Requests</h2>
+              <h2 className="font-semibold text-lg text-gray-900">Permintaan Penawaran Terbaru</h2>
             </div>
             <Link href="/admin/quotes" className="text-xs font-semibold text-gray-500 hover:text-gray-900 flex items-center gap-1">
-              <span>View All</span>
+              <span>Lihat Semua</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
@@ -111,14 +111,14 @@ export default async function AdminDashboardPage() {
           <div className="space-y-4">
             {recentQuotes.length === 0 ? (
               <div className="text-center py-8 text-gray-400 text-sm">
-                No quote requests received yet.
+                Belum ada permintaan penawaran yang diterima.
               </div>
             ) : (
               recentQuotes.map((quote) => (
                 <div key={quote.id} className="flex items-center justify-between p-4 rounded-xl border border-gray-50 bg-gray-50/50 hover:bg-gray-50 transition-colors">
                   <div className="space-y-1">
                     <p className="text-sm font-semibold text-gray-900">{quote.contact}</p>
-                    <p className="text-xs text-gray-500">{quote.company || "No Company"} &bull; {quote.eventType || "General"}</p>
+                    <p className="text-xs text-gray-500">{quote.company || "Tanpa Perusahaan"} &bull; {quote.eventType || "Umum"}</p>
                   </div>
                   <div className="flex items-center gap-4">
                     <span className={`text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider ${
@@ -145,10 +145,10 @@ export default async function AdminDashboardPage() {
           <div className="flex items-center justify-between border-b border-gray-100 pb-4">
             <div className="flex items-center gap-2">
               <Briefcase className="h-5 w-5 text-gray-400" />
-              <h2 className="font-semibold text-lg text-gray-900">Recent Projects</h2>
+              <h2 className="font-semibold text-lg text-gray-900">Proyek Terbaru</h2>
             </div>
             <Link href="/admin/portfolio" className="text-xs font-semibold text-gray-500 hover:text-gray-900 flex items-center gap-1">
-              <span>View All</span>
+              <span>Lihat Semua</span>
               <ArrowRight className="h-3 w-3" />
             </Link>
           </div>
@@ -156,7 +156,7 @@ export default async function AdminDashboardPage() {
           <div className="space-y-4">
             {recentProjects.length === 0 ? (
               <div className="text-center py-8 text-gray-400 text-sm">
-                No portfolio projects added yet.
+                Belum ada proyek portofolio yang ditambahkan.
               </div>
             ) : (
               recentProjects.map((project) => (

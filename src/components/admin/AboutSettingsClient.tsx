@@ -185,13 +185,13 @@ export function AboutSettingsClient({ initialSettings, initialStats }: AboutSett
       {/* Column 1 & 2: About Copy settings */}
       <div className="xl:col-span-2 space-y-6">
         <form onSubmit={handleSaveAbout} className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-6">
-          <h2 className="font-bold text-gray-900 text-lg border-b border-gray-100 pb-3">About Text Content</h2>
+          <h2 className="font-bold text-gray-900 text-lg border-b border-gray-100 pb-3">Konten Teks Tentang Kami</h2>
 
           <div className="space-y-1.5">
-            <Label htmlFor="about-heading" className="text-gray-900 font-semibold text-sm">About Section Heading *</Label>
+            <Label htmlFor="about-heading" className="text-gray-900 font-semibold text-sm">Judul Bagian Tentang Kami *</Label>
             <Input 
               id="about-heading" 
-              placeholder="e.g. Precision Engineering, Exceptional Craftsmanship." 
+              placeholder="misal: Dedikasi untuk Kualitas & Presisi" 
               value={heading} 
               onChange={(e) => setHeading(e.target.value)} 
               required 
@@ -200,11 +200,11 @@ export function AboutSettingsClient({ initialSettings, initialStats }: AboutSett
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="paragraph1" className="text-gray-900 font-semibold text-sm">Paragraph 1 (Core Focus) *</Label>
+            <Label htmlFor="paragraph1" className="text-gray-900 font-semibold text-sm">Paragraf 1 (Fokus Utama) *</Label>
             <textarea 
               id="paragraph1" 
               rows={4}
-              placeholder="First description paragraph..." 
+              placeholder="Paragraf deskripsi pertama..." 
               value={paragraph1} 
               onChange={(e) => setParagraph1(e.target.value)} 
               required 
@@ -214,7 +214,7 @@ export function AboutSettingsClient({ initialSettings, initialStats }: AboutSett
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="paragraph2" className="text-gray-900 font-semibold text-sm">Paragraph 2 (Workshop & Capabilities) *</Label>
+            <Label htmlFor="paragraph2" className="text-gray-900 font-semibold text-sm">Paragraf 2 (Workshop & Kemampuan) *</Label>
             <textarea 
               id="paragraph2" 
               rows={4}

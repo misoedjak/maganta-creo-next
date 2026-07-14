@@ -45,6 +45,13 @@ body {
   .glass-card {
     @apply bg-white/80 backdrop-blur-md border border-brand-magenta/10 rounded-2xl shadow-lg hover:shadow-xl transition-all;
   }
+  .scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
 }
 
 /* Smooth Scrolling */

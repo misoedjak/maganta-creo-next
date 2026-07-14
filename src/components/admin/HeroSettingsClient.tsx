@@ -139,7 +139,7 @@ export function HeroSettingsClient({ initialSettings }: HeroSettingsClientProps)
                 />
               </label>
               <p className="text-[10px] text-gray-400 max-w-xs">
-                Upload a premium high-resolution banner image. Supported formats: .png, .jpg, .webp. Recommended size: 1920x1080px.
+                Unggah gambar banner resolusi tinggi premium. Format yang didukung: .png, .jpg, .webp. Ukuran yang direkomendasikan: 1920x1080px.
               </p>
             </div>
           </div>
@@ -147,26 +147,26 @@ export function HeroSettingsClient({ initialSettings }: HeroSettingsClientProps)
 
         {/* Tagline Heading */}
         <div className="space-y-1.5">
-          <Label htmlFor="heading" className="text-gray-900 font-semibold text-sm">Hero Heading Tagline *</Label>
+          <Label htmlFor="heading" className="text-gray-900 font-semibold text-sm">Judul Tagline Utama *</Label>
           <Input 
             id="heading" 
-            placeholder="e.g. Premium Event Fabrication & Design." 
+            placeholder="misal: Kontraktor & Vendor Booth Pameran Premium." 
             value={heading} 
             onChange={(e) => setHeading(e.target.value)} 
             required 
             disabled={isPending}
             className="h-10 text-base"
           />
-          <p className="text-[10px] text-gray-400">Tip: Use `&lt;br class=&quot;hidden md:block&quot; /&gt;` inside the text if you wish to insert a break line break on desktop.</p>
+          <p className="text-[10px] text-gray-400">Tips: Gunakan `&lt;br class=&quot;hidden md:block&quot; /&gt;` di dalam teks jika Anda ingin memasukkan baris baru pada tampilan desktop.</p>
         </div>
 
         {/* Subheading Description */}
         <div className="space-y-1.5">
-          <Label htmlFor="subheading" className="text-gray-900 font-semibold text-sm">Sub-description Paragraph *</Label>
+          <Label htmlFor="subheading" className="text-gray-900 font-semibold text-sm">Paragraf Sub-deskripsi *</Label>
           <textarea 
             id="subheading" 
             rows={3}
-            placeholder="Introduce your fabrication solutions..." 
+            placeholder="Perkenalkan solusi fabrikasi Anda..." 
             value={subheading} 
             onChange={(e) => setSubheading(e.target.value)} 
             required 
@@ -177,16 +177,16 @@ export function HeroSettingsClient({ initialSettings }: HeroSettingsClientProps)
 
         {/* Buttons Row */}
         <div className="border-t border-gray-100 pt-6">
-          <h3 className="font-semibold text-gray-900 text-sm mb-4">Button Call-to-Actions (CTAs)</h3>
+          <h3 className="font-semibold text-gray-900 text-sm mb-4">Tombol Panggilan Aksi (CTA)</h3>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
             {/* Primary Button Settings */}
             <div className="space-y-4 border border-gray-100 rounded-xl p-4 bg-zinc-50/20">
-              <h4 className="font-semibold text-xs text-brand-magenta uppercase tracking-wider">Primary Button</h4>
+              <h4 className="font-semibold text-xs text-brand-magenta uppercase tracking-wider">Tombol Utama</h4>
               <div className="space-y-3">
                 <div className="space-y-1">
-                  <Label htmlFor="ctaText" className="text-xs">Button Label Text</Label>
+                  <Label htmlFor="ctaText" className="text-xs">Teks Label Tombol</Label>
                   <Input 
                     id="ctaText" 
                     value={ctaText} 

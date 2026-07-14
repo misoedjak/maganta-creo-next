@@ -78,73 +78,77 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
           </Link>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Products Swipeable Track */}
+        <div className="flex items-stretch gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-none">
           {products.map((product, idx) => {
             const formattedPrice = `${formatPrice(product.price)} / ${product.priceUnit}`;
             return (
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                key={product.id}
-                className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-xl hover:border-gray-200/80 transition-all duration-300 flex flex-col h-full"
+              <div 
+                key={product.id} 
+                className="min-w-[50vw] sm:min-w-[30vw] lg:min-w-[18%] max-w-[80vw] snap-start snap-always shrink-0 flex"
               >
-                {/* Image container */}
-                <div className="relative aspect-square w-full bg-gray-50 overflow-hidden flex items-center justify-center shrink-0 border-b border-gray-100">
-                  {product.image ? (
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="flex flex-col items-center justify-center text-gray-300 gap-1.5">
-                      <Tag size={24} />
-                      <span className="text-[10px]">No Image</span>
-                    </div>
-                  )}
-                  {product.featured && (
-                    <div className="absolute top-3 left-3 bg-[#FFD400] text-black font-semibold text-[10px] px-2.5 py-0.5 rounded-full shadow-sm">
-                      Terpopuler
-                    </div>
-                  )}
-                </div>
-
-                {/* Body Content */}
-                <div className="p-5 flex flex-col flex-grow">
-                  <span className="text-[10px] font-bold text-[#be3168] tracking-wider uppercase mb-1.5 block">
-                    {product.category.name}
-                  </span>
-                  <h3 className="font-heading font-bold text-gray-900 group-hover:text-[#be3168] transition-colors mb-2 line-clamp-1 text-sm md:text-base">
-                    {product.name}
-                  </h3>
-                  <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4 flex-grow">
-                    {product.description || "Penyewaan perlengkapan event berkualitas tinggi oleh Maganta Kreasi."}
-                  </p>
-
-                  {/* Price and Action */}
-                  <div className="pt-4 border-t border-gray-100 mt-auto">
-                    <div className="flex flex-col gap-3">
-                      <div>
-                        <span className="text-[10px] text-gray-400 block font-semibold">Harga Sewa</span>
-                        <span className="text-[#be3168] font-bold text-sm md:text-base">
-                          {formatPrice(product.price)}
-                          <span className="text-xs text-gray-500 font-normal"> / {product.priceUnit}</span>
-                        </span>
+                <motion.div
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.1 }}
+                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-gray-200/60 transition-all duration-300 flex flex-col w-full h-full"
+                >
+                  {/* Image container */}
+                  <div className="relative aspect-[4/3] w-full bg-gray-50 overflow-hidden flex items-center justify-center shrink-0 border-b border-gray-100">
+                    {product.image ? (
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="flex flex-col items-center justify-center text-gray-300 gap-1.5">
+                        <Tag size={20} />
+                        <span className="text-[9px]">Tidak Ada Gambar</span>
                       </div>
-                      <button
-                        onClick={() => handleInquiry(product.name, formattedPrice)}
-                        className="w-full flex items-center justify-center gap-2 px-4 py-2 rounded-xl bg-[#25D366] text-white font-semibold text-xs hover:bg-[#20ba56] hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#25D366]/10 transition-all duration-200"
-                      >
-                        <MessageSquare size={13} /> Sewa Sekarang
-                      </button>
+                    )}
+                    {product.featured && (
+                      <div className="absolute top-3 left-3 bg-[#FFD400] text-black font-semibold text-[9px] px-2.5 py-0.5 rounded-full shadow-sm">
+                        Terpopuler
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-4 flex flex-col flex-grow">
+                    <span className="text-[9px] font-bold text-[#be3168] tracking-wider uppercase mb-1 block">
+                      {product.category.name}
+                    </span>
+                    <h3 className="font-heading font-bold text-gray-900 group-hover:text-[#be3168] transition-colors mb-1 line-clamp-1 text-xs md:text-sm">
+                      {product.name}
+                    </h3>
+                    <p className="text-gray-500 text-[10px] leading-relaxed line-clamp-2 mb-3 flex-grow">
+                      {product.description || "Penyewaan perlengkapan event berkualitas tinggi oleh Maganta Kreasi."}
+                    </p>
+
+                    {/* Price and Action */}
+                    <div className="pt-3 border-t border-gray-100 mt-auto">
+                      <div className="flex flex-col gap-2.5">
+                        <div>
+                          <span className="text-[9px] text-gray-400 block font-semibold">Harga Sewa</span>
+                          <span className="text-[#be3168] font-bold text-xs md:text-sm">
+                            {formatPrice(product.price)}
+                            <span className="text-[10px] text-gray-500 font-normal"> / {product.priceUnit}</span>
+                          </span>
+                        </div>
+                        <button
+                          onClick={() => handleInquiry(product.name, formattedPrice)}
+                          className="w-full flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#25D366] text-white font-semibold text-[10px] hover:bg-[#20ba56] hover:scale-[1.02] active:scale-[0.98] shadow-md shadow-[#25D366]/10 transition-all duration-200"
+                        >
+                          <MessageSquare size={11} /> Sewa Sekarang
+                        </button>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              </div>
             );
           })}
         </div>

@@ -38,7 +38,7 @@ interface ProductsListProps {
 }
 
 export default function ProductsList({ products, categories, whatsappNumber }: ProductsListProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string>("all");
+  const [selectedCategory, setSelectedCategory] = useState<string>("semua");
   const [searchQuery, setSearchQuery] = useState("");
   const [visibleCount, setVisibleCount] = useState(12);
 
@@ -48,7 +48,7 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
   }, [selectedCategory, searchQuery]);
 
   const filteredProducts = products.filter((product) => {
-    const matchesCategory = selectedCategory === "all" || product.categoryId === selectedCategory;
+    const matchesCategory = selectedCategory === "semua" || product.categoryId === selectedCategory;
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (product.description && product.description.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchesCategory && matchesSearch && product.status === "active";
@@ -81,14 +81,14 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 justify-center md:justify-start w-full md:w-auto">
           <button
-            onClick={() => setSelectedCategory("all")}
+            onClick={() => setSelectedCategory("semua")}
             className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
-              selectedCategory === "all"
+              selectedCategory === "semua"
                 ? "bg-[#be3168] text-white shadow-md shadow-[#be3168]/20"
                 : "bg-white text-gray-600 border border-gray-200 hover:border-gray-300"
             }`}
           >
-            All Products ({products.filter(p => p.status === 'active').length})
+            Semua Produk ({products.filter(p => p.status === 'active').length})
           </button>
           {categories.map((cat) => {
             const count = products.filter((p) => p.categoryId === cat.id && p.status === "active").length;
@@ -114,7 +114,7 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
           <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder="Cari produk..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full h-11 pl-11 pr-4 bg-white border border-gray-200 rounded-full text-sm placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#be3168]/20 focus:border-[#be3168]"
@@ -124,9 +124,9 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
 
       {/* Results Count Feedback */}
       <div className="mb-6 flex justify-between items-center text-xs text-gray-500">
-        <span>Showing {Math.min(visibleCount, filteredProducts.length)} of {filteredProducts.length} products</span>
+        <span>Menampilkan {Math.min(visibleCount, filteredProducts.length)} dari {filteredProducts.length} produk</span>
         {filteredProducts.length > 0 && (
-          <span>Page 1 of {Math.ceil(filteredProducts.length / 12)}</span>
+          <span>Halaman 1 dari {Math.ceil(filteredProducts.length / 12)}</span>
         )}
       </div>
 
@@ -134,7 +134,7 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
       {filteredProducts.length === 0 ? (
         <div className="text-center py-20 bg-white rounded-3xl border border-gray-100 shadow-sm">
           <Info size={40} className="mx-auto text-gray-300 mb-4" />
-          <p className="text-gray-500 font-medium">No products found matching your criteria.</p>
+          <p className="text-gray-500 font-medium">Tidak ada produk yang cocok dengan kriteria pencarian Anda.</p>
         </div>
       ) : (
         <div className="space-y-12">
@@ -167,12 +167,12 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
                     ) : (
                       <div className="flex flex-col items-center justify-center text-gray-300 gap-1.5">
                         <Tag size={28} />
-                        <span className="text-xs">No Image</span>
+                        <span className="text-xs">Tidak Ada Gambar</span>
                       </div>
                     )}
                     {product.featured && (
                       <div className="absolute top-3 left-3 bg-[#FFD400] text-black font-semibold text-xs px-2.5 py-1 rounded-full shadow-sm">
-                        Best Rental
+                        Sewa Terbaik
                       </div>
                     )}
                   </div>
@@ -186,14 +186,14 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
                       {product.name}
                     </h3>
                     <p className="text-gray-500 text-xs leading-relaxed line-clamp-2 mb-4 flex-grow">
-                      {product.description || "Premium rental equipment from Maganta Kreasi. Contact us for customized rates."}
+                      {product.description || "Perlengkapan sewa premium dari Maganta Kreasi. Hubungi kami untuk harga khusus."}
                     </p>
 
                     {/* Price and Action */}
                     <div className="pt-4 border-t border-gray-100 mt-auto">
                       <div className="flex flex-col gap-3">
                         <div>
-                          <span className="text-xs text-gray-400 block font-medium">Rental Price</span>
+                          <span className="text-xs text-gray-400 block font-medium">Harga Sewa</span>
                           <span className="text-[#be3168] font-bold text-base md:text-lg">
                             {formatPrice(product.price)}
                             <span className="text-xs text-gray-500 font-medium"> / {product.priceUnit}</span>
@@ -220,7 +220,7 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
               onClick={() => setVisibleCount(prev => prev + 12)}
               className="px-8 py-3.5 rounded-full bg-white text-gray-700 border border-gray-200 hover:border-brand-magenta hover:text-brand-magenta hover:scale-105 active:scale-95 transition-all duration-300 font-semibold text-sm shadow-sm"
             >
-              Load More Products ({filteredProducts.length - visibleCount} remaining)
+              Muat Lebih Banyak Produk ({filteredProducts.length - visibleCount} tersisa)
             </button>
           </div>
         )}

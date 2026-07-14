@@ -70,11 +70,11 @@ export default function About({ settings, stats }: AboutProps) {
             className="grid grid-cols-2 gap-6"
           >
             {statCards.map((stat) => (
-              <div key={stat.id} className="glass-card p-8 flex flex-col items-center justify-center text-center group hover:bg-brand-magenta/5 transition-colors">
-                <span className="font-heading text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform">
+              <div key={stat.id} className="glass-card p-5 md:p-8 flex flex-col items-center justify-center text-center group hover:bg-brand-magenta/5 hover:-translate-y-1 transition-all duration-300">
+                <span className="font-heading text-4xl md:text-5xl font-bold text-brand-magenta mb-2 group-hover:scale-110 transition-transform">
                   {stat.number}
                 </span>
-                <span className="text-sm uppercase tracking-wider text-zinc-500 font-medium">
+                <span className="text-xs md:text-sm uppercase tracking-wider text-zinc-500 font-medium">
                   {stat.label}
                 </span>
               </div>
