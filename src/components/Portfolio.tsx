@@ -119,13 +119,13 @@ export default function Portfolio({ initialPortfolios, categories, layoutMode = 
           </div>
         ) : layoutMode === "carousel" ? (
           /* Carousel layout mode */
-          <div className="flex items-stretch gap-3 md:gap-4 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-none">
+          <div className="flex lg:grid lg:grid-cols-3 items-stretch gap-3 md:gap-4 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 lg:mx-0 lg:px-0 scrollbar-none">
             {projectsToRender.map((project, idx) => (
               <div 
                 key={project.id} 
-                className="min-w-[42vw] sm:min-w-[25vw] lg:min-w-[14%] max-w-[65vw] snap-start snap-always shrink-0 flex"
+                className="min-w-[70vw] sm:min-w-[40vw] lg:min-w-0 snap-start snap-always shrink-0 lg:shrink flex w-full"
               >
-                <Link href={`/portfolio/${project.slug}`} className="block group w-full flex">
+                <Link href={`/portfolio/${project.slug}`} className="group w-full flex flex-col h-full">
                   <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -141,13 +141,13 @@ export default function Portfolio({ initialPortfolios, categories, layoutMode = 
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent opacity-85 group-hover:opacity-100 transition-opacity" />
                     
-                    <div className="absolute inset-0 p-3 flex flex-col justify-end translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                      <span className="text-[#FFD400] font-medium text-[9px] mb-0.5">{project.category.name}</span>
-                      <h3 className="font-heading text-xs md:text-sm font-bold text-white mb-0.5 line-clamp-1">{project.title}</h3>
-                      {project.client && <p className="text-[8px] text-white/50 mb-0.5">Klien: {project.client}</p>}
+                    <div className="absolute inset-0 p-5 flex flex-col justify-end translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
+                      <span className="text-[#FFD400] font-bold text-xs tracking-wider uppercase mb-1">{project.category.name}</span>
+                      <h3 className="font-heading text-base md:text-lg font-bold text-white mb-1 line-clamp-1">{project.title}</h3>
+                      {project.client && <p className="text-xs text-white/70 mb-1">Klien: {project.client}</p>}
                       
-                      <div className="w-5 h-5 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-1">
-                        <ArrowUpRight size={10} className="text-white" />
+                      <div className="w-8 h-8 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2">
+                        <ArrowUpRight size={14} className="text-white" />
                       </div>
                     </div>
                   </motion.div>
