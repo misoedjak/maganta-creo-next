@@ -63,7 +63,7 @@ export default function Services({ categories = [] }: ServicesProps) {
           <div className="relative group/slider">
             <div 
               ref={scrollRef}
-              className="flex items-stretch gap-4 md:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-none"
+              className="flex items-stretch gap-4 md:gap-8 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scroll-pl-6 md:scroll-pl-12 scrollbar-none"
             >
               {categories.map((category, i) => {
               const hasBg = !!category.bgImageUrl;

@@ -119,7 +119,7 @@ export default function Portfolio({ initialPortfolios, categories, layoutMode = 
           </div>
         ) : layoutMode === "carousel" ? (
           /* Carousel layout mode */
-          <div className="flex lg:grid lg:grid-cols-3 items-stretch gap-3 md:gap-4 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 lg:mx-0 lg:px-0 scrollbar-none">
+          <div className="flex lg:grid lg:grid-cols-3 items-stretch gap-3 md:gap-4 overflow-x-auto lg:overflow-visible pb-8 lg:pb-0 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 lg:mx-0 lg:px-0 scroll-pl-6 md:scroll-pl-12 scrollbar-none">
             {projectsToRender.map((project, idx) => (
               <div 
                 key={project.id} 

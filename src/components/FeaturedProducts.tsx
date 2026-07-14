@@ -79,7 +79,7 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
         </div>
 
         {/* Products Swipeable Track */}
-        <div className="flex items-stretch gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scrollbar-none">
+        <div className="flex items-stretch gap-4 md:gap-6 overflow-x-auto pb-8 snap-x snap-mandatory scroll-smooth -mx-6 px-6 md:-mx-12 md:px-12 scroll-pl-6 md:scroll-pl-12 scrollbar-none">
           {products.map((product, idx) => {
             const formattedPrice = `${formatPrice(product.price)} / ${product.priceUnit}`;
             return (
@@ -95,7 +95,7 @@ export default function FeaturedProducts({ products, whatsappNumber }: FeaturedP
                   className="group bg-white rounded-2xl overflow-hidden border border-gray-100 hover:shadow-lg hover:border-gray-200/60 transition-all duration-300 flex flex-col w-full h-full"
                 >
                   {/* Image container */}
-                  <div className="relative aspect-[16/10] w-full bg-gray-50 overflow-hidden flex items-center justify-center shrink-0 border-b border-gray-100">
+                  <div className="relative aspect-video w-full bg-gray-50 overflow-hidden flex items-center justify-center shrink-0 border-b border-gray-100">
                     {product.image ? (
                       <img
                         src={product.image}
