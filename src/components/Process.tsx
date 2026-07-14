@@ -16,13 +16,13 @@ interface ProcessProps {
 
 export default function Process({ steps = [] }: ProcessProps) {
   const fallbackSteps = [
-    { title: "Consultation & Briefing", desc: "Understanding your brand vision, space constraints, and budget.", bgImageUrl: null },
-    { title: "3D Design & Rendering", desc: "Providing photorealistic mockups and structural floor plans.", bgImageUrl: null },
-    { title: "Material Selection", desc: "Sourcing the exact wood, metal, and finishes required.", bgImageUrl: null },
-    { title: "Workshop Fabrication", desc: "Carpentry, metalwork, and painting at our dedicated facility.", bgImageUrl: null },
-    { title: "Quality Control Setup", desc: "Pre-assembling complex structures in our workshop to guarantee fit.", bgImageUrl: null },
-    { title: "On-site Installation", desc: "Safe, rapid bump-in and construction at the event venue.", bgImageUrl: null },
-    { title: "Dismantling", desc: "Clean teardown and logistics removal post-event.", bgImageUrl: null },
+    { title: "Konsultasi & Briefing", desc: "Memahami visi brand Anda, batasan ruang, dan anggaran.", bgImageUrl: null },
+    { title: "Desain 3D & Rendering", desc: "Menyediakan mockup fotorealistis dan denah lantai struktural.", bgImageUrl: null },
+    { title: "Pemilihan Material", desc: "Mencari bahan yang tepat, mulai dari kayu, logam, dan finishing yang dibutuhkan.", bgImageUrl: null },
+    { title: "Fabrikasi Workshop", desc: "Pekerjaan kayu, logam, dan pengecatan di fasilitas khusus kami.", bgImageUrl: null },
+    { title: "Quality Control", desc: "Pemasangan awal struktur kompleks di workshop kami untuk menjamin kesesuaian.", bgImageUrl: null },
+    { title: "Instalasi di Lokasi", desc: "Konstruksi dan loading yang aman dan cepat di lokasi event.", bgImageUrl: null },
+    { title: "Pembongkaran", desc: "Pembongkaran bersih dan pemindahan logistik pasca-event.", bgImageUrl: null },
   ];
 
   const listToRender = steps.length > 0
@@ -48,9 +48,9 @@ export default function Process({ steps = [] }: ProcessProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Fabrication Pipeline</h2>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Proses Pengerjaan</h2>
           <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
-            A systematic approach from raw timber to jaw-dropping event architecture.
+            Pendekatan sistematis mulai dari konsep hingga arsitektur event yang memukau.
           </p>
         </motion.div>
 

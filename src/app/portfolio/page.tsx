@@ -8,8 +8,8 @@ export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Project Portfolio Catalogue | Maganta Kreasi",
-    description: "Browse all custom exhibition booths, stage fabrications, backdrop setups, and decorative installations completed by Maganta Kreasi.",
+    title: "Katalog Portofolio Proyek | Maganta Kreasi",
+    description: "Lihat semua booth pameran custom, fabrikasi panggung, setup backdrop, dan instalasi dekoratif yang diselesaikan oleh Maganta Kreasi.",
   };
 }
 

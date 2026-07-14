@@ -8,8 +8,8 @@ export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "About Us | Maganta Kreasi",
-    description: "Learn more about Maganta Kreasi's event fabrication team, custom workshops, vision, and mission in Jakarta, Indonesia.",
+    title: "Tentang Kami | Maganta Kreasi",
+    description: "Pelajari lebih lanjut tentang tim fabrikasi event, workshop custom, visi, dan misi Maganta Kreasi di Jakarta, Indonesia.",
   };
 }
 

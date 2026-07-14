@@ -19,13 +19,13 @@ export default function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/#about" },
-    { name: "Services", href: "/services" },
-    { name: "Products", href: "/products" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Clients", href: "/clients" },
-    { name: "Contact", href: "/#contact" },
+    { name: "Beranda", href: "/" },
+    { name: "Tentang Kami", href: "/#about" },
+    { name: "Layanan", href: "/services" },
+    { name: "Sewa Produk", href: "/products" },
+    { name: "Portofolio", href: "/portfolio" },
+    { name: "Klien", href: "/clients" },
+    { name: "Hubungi Kami", href: "/#contact" },
   ];
 
   return (

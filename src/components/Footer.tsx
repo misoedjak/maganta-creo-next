@@ -46,7 +46,7 @@ export default function Footer({ profile }: FooterProps) {
               MAGANTA<span className="text-brand-yellow">KREASI</span>
             </div>
             <p className="text-pink-100/90 mb-6 leading-relaxed text-sm">
-              Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.
+              Solusi fabrikasi dan dekorasi event premium. Dari pembuatan booth pameran custom hingga panggung festival berskala besar.
             </p>
             <div className="flex gap-4">
               {/* Instagram */}
@@ -81,14 +81,14 @@ export default function Footer({ profile }: FooterProps) {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-heading text-lg font-bold mb-6 text-white">Quick Links</h4>
+            <h4 className="font-heading text-lg font-bold mb-6 text-white">Tautan Cepat</h4>
             <ul className="space-y-3">
               {[
-                { name: "Home", href: "/#" },
-                { name: "About Workshop", href: "/#about" },
-                { name: "Rental Products", href: "/products" },
-                { name: "Fabrication Portfolio", href: "/#portfolio" },
-                { name: "Our Process", href: "/#process" }
+                { name: "Beranda", href: "/#" },
+                { name: "Tentang Workshop", href: "/#about" },
+                { name: "Sewa Produk", href: "/products" },
+                { name: "Portofolio Fabrikasi", href: "/#portfolio" },
+                { name: "Cara Kerja Kami", href: "/#process" }
               ].map(link => (
                 <li key={link.name}>
                   <a href={link.href} className="text-pink-100/90 hover:text-brand-yellow transition-colors text-sm">{link.name}</a>
@@ -190,12 +190,12 @@ export default function Footer({ profile }: FooterProps) {
 
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-pink-200/80">
           <div className="flex flex-col gap-1 text-center md:text-left">
-            <p>&copy;2025 Maganta Kreasi. All Rights Reserved.</p>
+            <p>&copy;2025 Maganta Kreasi. Hak cipta dilindungi.</p>
             <p>Published by <a href="https://www.asain.co.id" target="_blank" rel="noreferrer" className="text-brand-yellow hover:underline font-medium">www.asain.co.id</a></p>
           </div>
           <div className="flex gap-6">
-            <a href="#" className="hover:text-brand-yellow transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-brand-yellow transition-colors">Terms of Service</a>
+            <a href="#" className="hover:text-brand-yellow transition-colors">Kebijakan Privasi</a>
+            <a href="#" className="hover:text-brand-yellow transition-colors">Syarat & Ketentuan</a>
           </div>
         </div>
       </div>

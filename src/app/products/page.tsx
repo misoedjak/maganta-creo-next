@@ -9,8 +9,8 @@ export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Rental Products & Equipment Catalog | Maganta Kreasi",
-    description: "Browse our inventory of premium event rental equipment including professional stage lighting, sound systems, truss, and rigging.",
+    title: "Katalog Produk & Peralatan Sewa | Maganta Kreasi",
+    description: "Telusuri inventaris peralatan sewa event premium kami termasuk pencahayaan panggung profesional, sound system, truss, dan rigging.",
   };
 }
 

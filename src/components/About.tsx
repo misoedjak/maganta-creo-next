@@ -18,19 +18,19 @@ interface AboutProps {
 }
 
 export default function About({ settings, stats }: AboutProps) {
-  const heading = settings?.heading || "Precision Engineering, Exceptional Craftsmanship.";
-  const paragraph1 = settings?.paragraph1 || "Maganta Kreasi is Indonesia's premier event fabrication and decoration specialist. We bring visionary event designs to life with unparalleled structural integrity and aesthetic perfection.";
-  const paragraph2 = settings?.paragraph2 || "Operating from our massive in-house workshop, our team of structural engineers, carpenters, and visual artists craft bespoke exhibition booths, monumental festival stages, and immersive corporate event environments.";
+  const heading = settings?.heading || "Dedikasi untuk Kualitas & Presisi";
+  const paragraph1 = settings?.paragraph1 || "Maganta Kreasi adalah spesialis fabrikasi dan dekorasi event premier di Indonesia. Kami mewujudkan desain event visioner dengan integritas struktural dan kesempurnaan estetika.";
+  const paragraph2 = settings?.paragraph2 || "Beroperasi dari workshop in-house kami yang luas, tim kami membuat booth pameran custom, panggung festival monumental, dan lingkungan event korporat yang imersif.";
   
   const featureList = settings?.features
     ? settings.features.split(",").map(item => item.trim()).filter(Boolean)
-    : ["In-house Fabrication Workshop", "Premium Structural Materials", "Dedicated Project Managers"];
+    : ["Workshop Fabrikasi In-house", "Material Struktural Premium", "Manajer Proyek Terdedikasi"];
 
   const statCards = stats && stats.length > 0 ? stats : [
-    { id: "s1", number: "500+", label: "Fabrications Completed" },
-    { id: "s2", number: "Top", label: "Corporate Clients" },
-    { id: "s3", number: "In-House", label: "Production Workshop" },
-    { id: "s4", number: "100%", label: "Nationwide Service" },
+    { id: "s1", number: "500+", label: "Fabrikasi Selesai" },
+    { id: "s2", number: "Top", label: "Klien Korporat" },
+    { id: "s3", number: "In-House", label: "Workshop Produksi" },
+    { id: "s4", number: "100%", label: "Layanan Nasional" },
   ];
 
   return (

@@ -16,12 +16,12 @@ interface HeroProps {
 }
 
 export default function Hero({ settings }: HeroProps) {
-  const heading = settings?.heading || "Premium Event <br class=\"hidden md:block\" /> <span class=\"text-brand-yellow\">Fabrication</span> & Design.";
-  const subheading = settings?.subheading || "Premium Event Fabrication & Decoration Solutions. From Custom Exhibition Booths to Massive Festival Stages.";
+  const heading = settings?.heading || "Vendor Booth Pameran & <br class=\"hidden md:block\" /> <span class=\"text-brand-yellow\">Kontraktor Event</span> Premium.";
+  const subheading = settings?.subheading || "Solusi fabrikasi dan dekorasi event premium. Dari pembuatan booth pameran custom hingga panggung festival berskala besar.";
   const bgImageUrl = settings?.bgImageUrl || "/uploads/backgrounds/hero-flame-fest.jpg";
-  const ctaText = settings?.ctaText || "Pesan disini";
+  const ctaText = settings?.ctaText || "Konsultasi Sekarang";
   const ctaLink = settings?.ctaLink || "#contact";
-  const portfolioText = settings?.portfolioText || "View Portfolio";
+  const portfolioText = settings?.portfolioText || "Lihat Portofolio";
   const portfolioLink = settings?.portfolioLink || "#portfolio";
 
   return (

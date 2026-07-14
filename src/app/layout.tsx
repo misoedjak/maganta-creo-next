@@ -16,8 +16,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Maganta Kreasi | Premium Event Fabrication",
-  description: "Indonesia's premier event fabrication workshop. Custom Exhibition Booths, Stage Fabrication, Event Backdrops, and Decorative Installations.",
+  title: "Maganta Kreasi | Kontraktor Pameran & Vendor Booth Premium",
+  description: "Vendor kontraktor event terpercaya di Indonesia. Melayani jasa pembuatan booth pameran custom, panggung festival, panggung konser, dan backdrop event premium.",
 };
 
 import { Providers } from "@/components/Providers";

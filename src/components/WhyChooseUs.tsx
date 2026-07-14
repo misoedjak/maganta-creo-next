@@ -33,12 +33,12 @@ function getIcon(name: string) {
 
 export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
   const fallbackFeatures = [
-    { title: "In-House Workshop", desc: "Complete control over quality and timelines with our fully-equipped fabrication facility.", icon: "Hammer" },
-    { title: "Premium Materials", desc: "We source only high-grade materials to ensure structural safety and aesthetic perfection.", icon: "ShieldCheck" },
-    { title: "3D Prototyping", desc: "Visualize your setup before we build it with our expert 3D rendering and design team.", icon: "PenTool" },
-    { title: "Precision Engineering", desc: "Every joint and truss is engineered for maximum load-bearing safety.", icon: "Drill" },
-    { title: "On-Time Build", desc: "Strict adherence to production schedules and venue bump-in times.", icon: "Clock" },
-    { title: "Nationwide Deployment", desc: "Capable of manufacturing in Jakarta and deploying anywhere across Indonesia.", icon: "Map" },
+    { title: "Workshop In-House", desc: "Kendali penuh atas kualitas dan ketepatan waktu dengan fasilitas fabrikasi yang lengkap.", icon: "Hammer" },
+    { title: "Material Premium", desc: "Kami hanya menggunakan material berkualitas tinggi untuk keamanan struktural dan estetika.", icon: "ShieldCheck" },
+    { title: "Prototyping 3D", desc: "Visualisasikan setup Anda sebelum kami membangunnya dengan tim desain 3D ahli kami.", icon: "PenTool" },
+    { title: "Teknik Presisi", desc: "Setiap sambungan dan rangka dirancang untuk keamanan beban maksimal.", icon: "Drill" },
+    { title: "Pengerjaan Tepat Waktu", desc: "Kepatuhan ketat terhadap jadwal produksi dan waktu loading venue.", icon: "Clock" },
+    { title: "Layanan Seluruh Indonesia", desc: "Mampu memproduksi di Jakarta dan memasang di mana saja di seluruh Indonesia.", icon: "Map" },
   ];
 
   const listToRender = advantages.length > 0 
@@ -54,9 +54,9 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">The Maganta Advantage</h2>
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Keunggulan Maganta Kreasi</h2>
           <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
-            We don&apos;t outsource. We build. Here is why top agencies and brands trust us with their physical presence.
+            Kami tidak menggunakan pihak ketiga. Kami membangun sendiri. Inilah mengapa agensi dan brand top mempercayai kami.
           </p>
         </motion.div>
 
@@ -91,7 +91,7 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
                         {getIcon(feature.icon)}
                       </div>
                       <span className="font-semibold text-xs tracking-wider uppercase mb-1.5 text-brand-yellow">
-                        Advantage
+                        Keunggulan
                       </span>
                       <h3 className="font-heading text-xl font-bold mb-2 text-white">{feature.title}</h3>
                       <p className="text-white/80 leading-relaxed text-sm font-light line-clamp-3 mb-4">

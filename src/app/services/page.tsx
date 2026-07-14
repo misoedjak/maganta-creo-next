@@ -10,8 +10,8 @@ export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Services & Capabilities | Maganta Kreasi",
-    description: "Detailed exhibition booth fabrication, stage setups, backdrops, gates, wayfinding, and artistic decorative installations by Maganta Kreasi.",
+    title: "Layanan & Kemampuan | Maganta Kreasi",
+    description: "Fabrikasi booth pameran, setup panggung, backdrop, gate, wayfinding, dan instalasi dekoratif artistik oleh Maganta Kreasi.",
   };
 }
 

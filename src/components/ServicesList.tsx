@@ -52,7 +52,7 @@ export default function ServicesList({ categories }: ServicesListProps) {
     <>
       {categories.length === 0 ? (
         <div className="py-24 text-center text-zinc-400 text-sm border border-dashed border-zinc-200 rounded-3xl">
-          No fabrication services found. Create some categories in the admin dashboard!
+          Belum ada layanan fabrikasi. Buat kategori di dashboard admin!
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -97,7 +97,7 @@ export default function ServicesList({ categories }: ServicesListProps) {
                   {/* Feature Bullets */}
                   {featureList.length > 0 && (
                     <div className="space-y-2 pt-2">
-                      <p className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">Features & Inclusions</p>
+                      <p className="text-[10px] text-zinc-400 uppercase font-bold tracking-wider">Fitur & Kelengkapan</p>
                       <ul className="grid grid-cols-2 gap-2 text-xs text-zinc-800">
                         {featureList.map((feat, fIdx) => (
                           <li key={fIdx} className="flex items-center gap-1.5">
@@ -116,7 +116,7 @@ export default function ServicesList({ categories }: ServicesListProps) {
                     onClick={() => handleRequestQuote(category.name)}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-brand-magenta hover:text-brand-yellow transition-colors cursor-pointer group"
                   >
-                    <span>Request Quote For This Service</span>
+                    <span>Minta Penawaran Layanan Ini</span>
                     <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 </div>

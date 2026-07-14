@@ -37,22 +37,22 @@ export default function Services({ categories = [] }: ServicesProps) {
           className="text-center mb-16"
         >
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark">Fabrication Services</h2>
+            <h2 className="font-heading text-4xl md:text-5xl font-bold text-brand-dark">Layanan Kami</h2>
             <a
               href="/services"
               className="px-5 py-2.5 text-sm font-semibold rounded-full bg-brand-magenta text-white hover:bg-brand-yellow hover:text-black hover:scale-105 transition-transform shadow-lg shadow-brand-magenta/10 inline-flex items-center gap-2"
             >
-              Request Services
+              Pesan Layanan
             </a>
           </div>
           <p className="text-zinc-500 text-lg max-w-2xl mx-auto">
-            From raw materials to breathtaking event architecture. We build the physical foundation of your success.
+            Solusi Fabrikasi Event Menyeluruh. Kami membangun fondasi fisik untuk kesuksesan event Anda.
           </p>
         </motion.div>
 
         {categories.length === 0 ? (
           <div className="py-16 text-center text-zinc-400 text-sm border border-dashed border-zinc-200 rounded-3xl">
-            No fabrication services found. Create some categories in the admin dashboard!
+            Belum ada layanan fabrikasi. Buat kategori di dashboard admin!
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -86,7 +86,7 @@ export default function Services({ categories = [] }: ServicesProps) {
                             {getCategoryIcon(category.slug)}
                           </div>
                           <span className="font-semibold text-xs tracking-wider uppercase mb-1.5 text-brand-yellow">
-                            Service
+                            Layanan
                           </span>
                           <h3 className="font-heading text-2xl font-bold mb-2 text-white">{category.name}</h3>
                           {category.description && (
