@@ -189,7 +189,6 @@ export default function Footer({ profile }: FooterProps) {
         <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-pink-200/80">
           <div className="flex flex-col gap-1 text-center md:text-left">
             <p>&copy;2025 Maganta Kreasi. Hak cipta dilindungi.</p>
-            <p>Published by <a href="https://www.asain.co.id" target="_blank" rel="noreferrer" className="text-brand-yellow hover:underline font-medium">www.asain.co.id</a></p>
           </div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-brand-yellow transition-colors">Kebijakan Privasi</a>
