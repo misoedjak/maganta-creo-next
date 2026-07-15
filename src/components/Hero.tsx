@@ -110,18 +110,14 @@ export default function Hero({ settings }: HeroProps) {
               Kontraktor & Fabrikasi <br />Event Terpercaya
             </h3>
 
-            <div className="grid grid-cols-2 gap-4 mt-2">
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/10 flex flex-col hover:bg-white/15 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-inner">
-                {/* Micro accent */}
-                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-brand-yellow/40" />
+             <div className="grid grid-cols-2 gap-4 mt-2">
+              <div className="p-4 rounded-2xl bg-white/20 border border-white/25 flex flex-col hover:bg-white/25 hover:border-white/30 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-md shadow-black/10">
                 <span className="font-heading text-3xl font-extrabold text-brand-yellow tracking-tight drop-shadow-sm">500+</span>
                 <span className="text-[10px] text-pink-100/90 font-bold uppercase tracking-wider mt-1.5">Project Selesai</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white/10 border border-white/10 flex flex-col hover:bg-white/15 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-inner">
-                {/* Micro accent */}
-                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-brand-yellow/40" />
+              <div className="p-4 rounded-2xl bg-white/20 border border-white/25 flex flex-col hover:bg-white/25 hover:border-white/30 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-md shadow-black/10">
                 <span className="font-heading text-3xl font-extrabold text-brand-yellow tracking-tight drop-shadow-sm">100%</span>
-                <span className="text-[10px] text-pink-100/90 font-bold uppercase tracking-wider mt-1.5">In-house Fabric</span>
+                <span className="text-[10px] text-pink-100/90 font-bold uppercase tracking-wider mt-1.5">In-house Production</span>
               </div>
             </div>
 
