@@ -54,8 +54,8 @@ export default function WhyChooseUs({ advantages = [] }: WhyChooseUsProps) {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Keunggulan Maganta Kreasi</h2>
-          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-900"><span className="text-brand-magenta">Keunggulan</span> Maganta Kreasi</h2>
+          <p className="text-zinc-800 font-semibold text-xs sm:text-sm md:text-base max-w-2xl mx-auto">
             Kami tidak menggunakan pihak ketiga. Kami membangun sendiri. Inilah mengapa agensi dan brand top mempercayai kami.
           </p>
         </motion.div>

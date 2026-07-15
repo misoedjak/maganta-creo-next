@@ -35,7 +35,7 @@ export default async function ProductsPage() {
       <Navbar />
 
       {/* Hero Banner Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-brand-light relative overflow-hidden border-b border-brand-magenta/5">
+      <section className="pt-32 pb-8 bg-gradient-to-b from-white to-brand-light relative overflow-hidden border-b border-brand-magenta/5">
         <div className="absolute inset-0 bg-grid-pattern opacity-[0.03] pointer-events-none" />
         <div className="container mx-auto px-6 md:px-12 relative z-10">
           <div className="max-w-3xl">
@@ -53,7 +53,7 @@ export default async function ProductsPage() {
       </section>
 
       {/* Main Catalog Section */}
-      <section className="py-16 bg-brand-light">
+      <section className="pt-6 pb-16 bg-brand-light">
         <div className="container mx-auto px-6 md:px-12">
           <ProductsList 
             products={rawProducts} 

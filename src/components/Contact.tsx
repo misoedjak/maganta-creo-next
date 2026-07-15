@@ -84,7 +84,7 @@ export default function Contact({ profile }: ContactProps) {
                 href="?quote=open"
                 className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3 sm:px-8 sm:py-4 rounded-full bg-transparent border-2 border-white text-white font-semibold text-sm sm:text-base hover:bg-white hover:text-brand-magenta hover:scale-105 active:scale-95 transition-all duration-200"
               >
-                <FileText size={20} /> Minta Penawaran
+                <FileText size={20} /> Pesan sekarang
               </Link>
 
             </div>
@@ -130,7 +130,7 @@ export default function Contact({ profile }: ContactProps) {
                   }
                 }
               `}</style>
-              <div data-impeccable-variant="1">
+              <div data-impeccable-variant="1" style={{ display: "none" }}>
                 <div className="p-8 pb-6">
                   <h3 className="font-heading text-2xl font-bold mb-4 flex items-center gap-2 text-white">
                     <MapPin className="text-brand-yellow" /> Kantor & Workshop

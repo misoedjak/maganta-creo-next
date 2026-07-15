@@ -29,12 +29,29 @@ interface HeroSettingsClientProps {
   initialSettings: HeroSettingsItem;
 }
 
+const formatInitialHeadingHero = (val: string) => {
+  if (!val) return "";
+  if (val.includes("{") && val.includes("}")) return val;
+  let parsed = val;
+  const spanRegex = /<span[^>]*>(.*?)<\/span>/g;
+  if (spanRegex.test(parsed)) {
+    parsed = parsed.replace(spanRegex, "{$1}");
+  }
+  parsed = parsed.replace(/<br\s*\/?>/g, " ");
+  parsed = parsed.replace(/\s+/g, " ").trim();
+  
+  if (!parsed.includes("{") && parsed.includes("Kontraktor Event")) {
+    parsed = parsed.replace("Kontraktor Event", "{Kontraktor Event}");
+  }
+  return parsed;
+};
+
 export function HeroSettingsClient({ initialSettings }: HeroSettingsClientProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   // Form Fields State
-  const [heading, setHeading] = useState(initialSettings.heading);
+  const [heading, setHeading] = useState(formatInitialHeadingHero(initialSettings.heading));
   const [subheading, setSubheading] = useState(initialSettings.subheading);
   const [bgImageUrl, setBgImageUrl] = useState(initialSettings.bgImageUrl);
   const [isUploading, setIsUploading] = useState(false);

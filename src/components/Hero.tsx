@@ -16,7 +16,10 @@ interface HeroProps {
 }
 
 export default function Hero({ settings }: HeroProps) {
-  const heading = settings?.heading || "Vendor Booth Pameran & <br class=\"hidden md:block\" /> <span class=\"text-brand-yellow\">Kontraktor Event</span> Premium.";
+  const headingRaw = settings?.heading || "Vendor Booth Pameran & <br class=\"hidden md:block\" /> <span class=\"text-brand-yellow whitespace-nowrap\">Kontraktor Event</span> Premium.";
+  const heading = headingRaw.includes("{") && headingRaw.includes("}")
+    ? headingRaw.replace(/\{([^}]+)\}/g, '<span class="text-brand-yellow font-bold whitespace-nowrap">$1</span>')
+    : headingRaw;
   const subheading = settings?.subheading || "Solusi fabrikasi dan dekorasi event premium. Dari pembuatan booth pameran custom hingga panggung festival berskala besar.";
   const bgImageUrl = settings?.bgImageUrl || "/uploads/backgrounds/hero-flame-fest.jpg";
   const ctaText = settings?.ctaText || "Konsultasi Sekarang";
@@ -90,39 +93,50 @@ export default function Hero({ settings }: HeroProps) {
             initial={{ opacity: 0, x: 50, scale: 0.95 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="hidden lg:col-span-5 lg:flex flex-col gap-6 p-8 rounded-3xl bg-black/40 backdrop-blur-md border border-white/10 shadow-2xl relative"
+            className="hidden lg:col-span-5 lg:flex flex-col gap-6 p-8 rounded-3xl bg-gradient-to-br from-brand-magenta via-[#9e2150] to-[#7c153d] border border-white/20 shadow-2xl relative overflow-hidden group shadow-brand-magenta/35 animate-in fade-in duration-700"
           >
-            {/* Ambient subtle yellow glow behind card */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-brand-yellow/20 to-brand-magenta/25 rounded-3xl blur-xl opacity-40 pointer-events-none -z-10" />
+            {/* Glossy gradient overlays & glass reflections */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl pointer-events-none -z-10 group-hover:bg-white/15 transition-all duration-500" />
+            <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 rounded-full bg-brand-yellow animate-pulse" />
-              <span className="text-[10px] uppercase tracking-widest text-[#FFD400] font-bold">Highlight Perusahaan</span>
+            <div className="flex items-center gap-2.5">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/10 backdrop-blur-sm">
+                <span className="w-2 h-2 rounded-full bg-brand-yellow shadow-[0_0_8px_#FFD400] animate-pulse" />
+                <span className="text-[9px] uppercase tracking-widest text-brand-yellow font-extrabold">Highlight Perusahaan</span>
+              </span>
             </div>
 
-            <h3 className="font-heading text-lg sm:text-xl font-bold text-white leading-tight">
-              Kontraktor & Fabrikasi Event Terpercaya
+            <h3 className="font-heading text-xl sm:text-2xl font-bold text-white leading-tight tracking-tight mt-1">
+              Kontraktor & Fabrikasi <br />Event Terpercaya
             </h3>
 
             <div className="grid grid-cols-2 gap-4 mt-2">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex flex-col">
-                <span className="font-heading text-2xl font-bold text-[#FFD400]">500+</span>
-                <span className="text-[10px] text-zinc-400 font-semibold uppercase tracking-wider mt-1">Project Selesai</span>
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/10 flex flex-col hover:bg-white/15 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-inner">
+                {/* Micro accent */}
+                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-brand-yellow/40" />
+                <span className="font-heading text-3xl font-extrabold text-brand-yellow tracking-tight drop-shadow-sm">500+</span>
+                <span className="text-[10px] text-pink-100/90 font-bold uppercase tracking-wider mt-1.5">Project Selesai</span>
               </div>
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/5 flex flex-col">
-                <span className="font-heading text-2xl font-bold text-[#FFD400]">100%</span>
-                <span className="text-[10px] text-zinc-400 font-semibold uppercase tracking-wider mt-1">In-house Fabric</span>
+              <div className="p-4 rounded-2xl bg-white/10 border border-white/10 flex flex-col hover:bg-white/15 hover:border-white/20 hover:-translate-y-0.5 transition-all duration-300 relative overflow-hidden shadow-inner">
+                {/* Micro accent */}
+                <div className="absolute top-2 right-2 w-1.5 h-1.5 rounded-full bg-brand-yellow/40" />
+                <span className="font-heading text-3xl font-extrabold text-brand-yellow tracking-tight drop-shadow-sm">100%</span>
+                <span className="text-[10px] text-pink-100/90 font-bold uppercase tracking-wider mt-1.5">In-house Fabric</span>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 pt-3 border-t border-white/10 text-[11px] text-zinc-300">
-              <div className="flex items-center gap-2.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
-                <span>Workshop In-House Pribadi Seluas 2000m²</span>
+            <div className="flex flex-col gap-3 pt-4 border-t border-white/15 text-xs text-white/90">
+              <div className="flex items-center gap-3 group/item">
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 flex items-center justify-center group-hover/item:bg-brand-yellow/20 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
+                </span>
+                <span className="font-medium">Workshop In-House Pribadi Seluas 2000m²</span>
               </div>
-              <div className="flex items-center gap-2.5">
-                <div className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
-                <span>Pengiriman & Pemasangan Seluruh Indonesia</span>
+              <div className="flex items-center gap-3 group/item">
+                <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 flex items-center justify-center group-hover/item:bg-brand-yellow/20 transition-colors">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-yellow" />
+                </span>
+                <span className="font-medium">Pengiriman & Pemasangan Seluruh Indonesia</span>
               </div>
             </div>
           </motion.div>

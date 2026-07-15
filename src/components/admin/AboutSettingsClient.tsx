@@ -44,12 +44,21 @@ interface AboutSettingsClientProps {
   initialStats: StatCardItem[];
 }
 
+const formatInitialHeadingAbout = (val: string) => {
+  if (!val) return "";
+  if (val.includes("{") && val.includes("}")) return val;
+  if (val.includes("Kualitas & Presisi")) {
+    return val.replace("Kualitas & Presisi", "{Kualitas & Presisi}");
+  }
+  return val;
+};
+
 export function AboutSettingsClient({ initialSettings, initialStats }: AboutSettingsClientProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   // About Form State
-  const [heading, setHeading] = useState(initialSettings.heading);
+  const [heading, setHeading] = useState(formatInitialHeadingAbout(initialSettings.heading));
   const [paragraph1, setParagraph1] = useState(initialSettings.paragraph1);
   const [paragraph2, setParagraph2] = useState(initialSettings.paragraph2);
   const [features, setFeatures] = useState(initialSettings.features);

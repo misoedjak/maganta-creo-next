@@ -48,8 +48,8 @@ export default function Process({ steps = [] }: ProcessProps) {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Proses Pengerjaan</h2>
-          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-900"><span className="text-brand-magenta">Proses</span> Pengerjaan</h2>
+          <p className="text-zinc-800 font-semibold text-xs sm:text-sm md:text-base max-w-2xl mx-auto">
             Pendekatan sistematis mulai dari konsep hingga arsitektur event yang memukau.
           </p>
         </motion.div>

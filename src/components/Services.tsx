@@ -49,8 +49,8 @@ export default function Services({ categories = [] }: ServicesProps) {
           viewport={{ once: true }}
           className="text-center mb-8 md:mb-16"
         >
-          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Layanan Kami</h2>
-          <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto">
+          <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-zinc-900"><span className="text-brand-magenta">Layanan</span> Kami</h2>
+          <p className="text-zinc-800 font-semibold text-xs sm:text-sm md:text-base max-w-2xl mx-auto">
             Solusi Fabrikasi Event Menyeluruh. Kami membangun fondasi fisik untuk kesuksesan event Anda.
           </p>
         </motion.div>
@@ -136,24 +136,6 @@ export default function Services({ categories = [] }: ServicesProps) {
               );
             })}
             </div>
-            
-            {/* Left Button */}
-            <button
-              onClick={() => scroll("left")}
-              className="absolute left-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-zinc-200 text-brand-dark flex items-center justify-center shadow-lg hover:bg-brand-yellow hover:border-brand-yellow hover:scale-105 active:scale-95 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
-              aria-label="Scroll left"
-            >
-              <ChevronLeft size={24} />
-            </button>
-
-            {/* Right Button */}
-            <button
-              onClick={() => scroll("right")}
-              className="absolute right-2 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-white/90 border border-zinc-200 text-brand-dark flex items-center justify-center shadow-lg hover:bg-brand-yellow hover:border-brand-yellow hover:scale-105 active:scale-95 transition-all opacity-0 group-hover/slider:opacity-100 hidden md:flex"
-              aria-label="Scroll right"
-            >
-              <ChevronRight size={24} />
-            </button>
           </div>
         )}
 

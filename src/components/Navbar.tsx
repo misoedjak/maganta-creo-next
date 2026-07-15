@@ -86,9 +86,9 @@ export default function Navbar({ whatsappNumber = "6282115151515" }: NavbarProps
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           mobileMenuOpen
             ? "bg-transparent py-2.5"
-            : (!isHome || scrolled) 
-              ? "bg-gradient-to-r from-brand-magenta/95 via-[#8e244d]/95 to-brand-magenta/95 backdrop-blur-md py-2.5 lg:py-4 border-b border-white/10 shadow-lg shadow-black/10" 
-              : "bg-transparent py-4 lg:py-6"
+            : scrolled 
+              ? "bg-brand-magenta/95 backdrop-blur-md py-2.5 lg:py-4 border-b border-white/10 shadow-lg shadow-black/10" 
+              : "bg-brand-magenta/95 backdrop-blur-md py-3 lg:py-5 border-b border-white/10 shadow-lg shadow-black/10"
         }`}
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">

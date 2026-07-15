@@ -90,7 +90,7 @@ export default async function ClientsPage() {
       <Navbar />
 
       {/* Hero Header */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-white to-brand-light relative overflow-hidden border-b border-brand-magenta/5">
+      <section className="pt-32 pb-8 bg-gradient-to-b from-white to-brand-light relative overflow-hidden border-b border-brand-magenta/5">
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-magenta/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-6 md:px-12 text-center relative z-10">
           <h1 className="font-heading text-4xl md:text-6xl font-bold mb-4 tracking-tight text-brand-dark">
@@ -103,9 +103,9 @@ export default async function ClientsPage() {
       </section>
 
       {/* Partner Logos Grid */}
-      <section className="py-16 bg-brand-light">
+      <section className="pt-6 pb-16 bg-brand-light">
         <div className="container mx-auto px-6 md:px-12">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <h2 className="font-heading text-2xl md:text-3xl font-bold text-brand-dark">Trusted Nationwide</h2>
           </div>
 
@@ -113,62 +113,13 @@ export default async function ClientsPage() {
             {logosToRender.map((client, i) => {
               const cardContent = (
                 <div 
-                  className="flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 cursor-pointer h-36"
+                  className="flex items-center justify-center p-4 hover:scale-105 transition-all duration-300 cursor-pointer h-24 sm:h-28"
                 >
-                  <div data-impeccable-variants="43eeccf9" data-impeccable-variant-count="3" style={{ display: "contents" }}>
-                    {/* impeccable-variants-start 43eeccf9 */}
-                    {/* Original */}
-                    <div data-impeccable-variant="original">
-                      <img 
-                        src={`${client.logoUrl}?v=2`} 
-                        alt={client.name} 
-                        className="max-h-16 md:max-h-20 max-w-[180px] md:max-w-[220px] object-contain opacity-95 hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                    {/* Variants: insert below this line */}
-                    <style data-impeccable-css="43eeccf9">{`
-                      @scope ([data-impeccable-variant="1"]) {
-                        :scope img {
-                          max-height: 5.5rem !important; /* ~88px */
-                          max-width: 220px !important;
-                        }
-                      }
-                      @scope ([data-impeccable-variant="2"]) {
-                        :scope img {
-                          max-height: 7rem !important; /* ~112px */
-                          max-width: 260px !important;
-                        }
-                      }
-                      @scope ([data-impeccable-variant="3"]) {
-                        :scope img {
-                          max-height: 8.5rem !important; /* ~136px */
-                          max-width: 300px !important;
-                        }
-                      }
-                    `}</style>
-                    <div data-impeccable-variant="1">
-                      <img 
-                        src={`${client.logoUrl}?v=2`} 
-                        alt={client.name} 
-                        className="max-h-20 max-w-[200px] object-contain opacity-95 hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                    <div data-impeccable-variant="2" style={{ display: "none" }}>
-                      <img 
-                        src={`${client.logoUrl}?v=2`} 
-                        alt={client.name} 
-                        className="max-h-28 max-w-[240px] object-contain opacity-95 hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                    <div data-impeccable-variant="3" style={{ display: "none" }}>
-                      <img 
-                        src={`${client.logoUrl}?v=2`} 
-                        alt={client.name} 
-                        className="max-h-36 max-w-[280px] object-contain opacity-95 hover:opacity-100 transition-opacity"
-                      />
-                    </div>
-                    {/* impeccable-variants-end 43eeccf9 */}
-                  </div>
+                  <img 
+                    src={client.logoUrl} 
+                    alt={client.name} 
+                    className="max-h-12 sm:max-h-16 max-w-full object-contain opacity-95 hover:opacity-100 transition-opacity"
+                  />
                 </div>
               );
 

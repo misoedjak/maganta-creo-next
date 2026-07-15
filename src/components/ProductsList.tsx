@@ -77,7 +77,7 @@ export default function ProductsList({ products, categories, whatsappNumber }: P
   return (
     <div className="w-full">
       {/* Search & Category Filter Section */}
-      <div className="flex flex-col md:flex-row gap-6 justify-between items-center mb-12">
+      <div className="flex flex-col md:flex-row gap-6 justify-between items-center mb-6">
         {/* Category Tabs */}
         <div className="flex flex-wrap gap-2 justify-center md:justify-start w-full md:w-auto">
           <button

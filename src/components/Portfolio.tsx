@@ -61,17 +61,21 @@ export default function Portfolio({ initialPortfolios, categories, layoutMode = 
     ? initialPortfolios.slice(0, 6) // limit to 6 items on homepage carousel
     : filteredProjects;
 
+  const sectionPadding = layoutMode === "carousel" 
+    ? "py-12 md:py-24" 
+    : "pt-4 pb-16 md:pt-6 md:pb-24";
+
   return (
-    <section id="portfolio" className="py-12 md:py-24 bg-brand-light border-t border-brand-magenta/5 overflow-hidden" suppressHydrationWarning>
+    <section id="portfolio" className={`bg-brand-light border-t border-brand-magenta/5 overflow-hidden ${sectionPadding}`} suppressHydrationWarning>
       <div className="container mx-auto px-6 md:px-12">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 md:mb-12 gap-4 md:gap-6">
+        <div className="flex flex-col mb-8 gap-6">
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: -10 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading text-2xl sm:text-4xl md:text-5xl font-bold mb-4 text-brand-dark">Portofolio Kami</h2>
-            <p className="text-zinc-500 text-sm sm:text-base md:text-lg max-w-xl">
+            <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-3 text-zinc-900"><span className="text-brand-magenta">Portofolio</span> Kami</h2>
+            <p className="text-zinc-800 font-semibold text-xs sm:text-sm md:text-base max-w-2xl">
               Jelajahi proyek pameran, booth custom, backdrop, dan dekorasi event terbaru kami.
             </p>
           </motion.div>
@@ -79,8 +83,8 @@ export default function Portfolio({ initialPortfolios, categories, layoutMode = 
           {/* Categories Filters - Only show in grid mode */}
           {layoutMode === "grid" && (
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="flex gap-2 overflow-x-auto pb-2 -mx-6 px-6 md:mx-0 md:px-0 md:flex-wrap scrollbar-none snap-x snap-mandatory shrink-0"
             >
